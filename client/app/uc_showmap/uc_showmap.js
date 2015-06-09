@@ -38,7 +38,7 @@ define([
            .openOn(map);
      
       /* Load the save-to-excel Use Case after the DOM has been set */
-      UC_SaveExcelFile.init('#downloadButton');
+      UC_SaveExcelFile.init('#pop-up');
     }
     
     /* Prepare map for action */
