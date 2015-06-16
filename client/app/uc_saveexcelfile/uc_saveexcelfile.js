@@ -17,12 +17,12 @@ define([
             }
         }
   */
-  function preparedata(){
+  function preparedata(latlon){
     var ws = {};
     ws['A1'] = {t:'n', 
-              v:'1'};
+                v:'1'};    //Skriv lat lon Fortsätt HÄÄÄÄÄÄÄR!!!!!!!!!!!!!!!!!!!!!!!!!
     
-    ws['!ref'] = 'A1:D4'; //Needed
+    ws['!ref'] = 'A1:D4'; //Needed for specifying print "area"
     return ws;
   }
   
@@ -35,18 +35,18 @@ define([
   
   /* Converting chars to hex for Blob.js*/
   function toHexArray(s) {
-      var buf = new ArrayBuffer(s.length);
-      var view = new Uint8Array(buf);
-      for (var i=0; i!=s.length; ++i) 
-        view[i] = s.charCodeAt(i) & 0xFF;
-      return buf;
-    }
+    var buf = new ArrayBuffer(s.length);
+    var view = new Uint8Array(buf);
+    for (var i=0; i!=s.length; ++i) 
+      view[i] = s.charCodeAt(i) & 0xFF;
+    return buf;
+  }
 
   /* Where it all happens */ 
-  var execute = function(){
+  var execute = function(latlon){
     console.log("execute");
     var wb = new Workbook();
-    var ws = preparedata();
+    var ws = preparedata(latlon);
     var sheet_name = "SheetJS";
     wb.SheetNames.push(sheet_name);
     wb.Sheets[sheet_name] = ws;
@@ -56,7 +56,7 @@ define([
   }
   
   /* Init Use Case */
-  var init = function (element){
+  var init = function (element, latlon){
     
     /* Add save button to leaflet pop-up */
     var template = Mustache.render(SaveButtonTemplate);
@@ -64,7 +64,7 @@ define([
     
     /* Add listner to save button */
     $("#save-excel-button").on('click', function(){
-      execute();
+      execute(latlon);
     });
   }
   

@@ -7,8 +7,18 @@ define([
   'uc_showmap/map_vattenweb',
   'uc_showmap/map_openstreet',
   'text!uc_showmap/popup_template.html',
-  'uc_saveexcelfile/uc_saveexcelfile'
-], function ($, L, cssutil, Mustache, MapTemplate, Vattenweb, Openstreet, PopupTemplate, UC_SaveExcelFile) {
+  'uc_saveexcelfile/uc_saveexcelfile',
+  'uc_importexcelfile/uc_importexcelfile'
+], function ( $, 
+              L, 
+              cssutil,
+              Mustache, 
+              MapTemplate, 
+              Vattenweb, 
+              Openstreet, 
+              PopupTemplate, 
+              UC_SaveExcelFile, 
+              UC_ImportExcelFile ) {
   
   var init = function (element){
     /* Load leaflet css */
@@ -30,15 +40,18 @@ define([
     function onMapClick(e) {
       
       /*Load template for holding the popup with latlon as data */
-      var latlon = e.latlng.toString();
-      var popup_template = Mustache.render(PopupTemplate, {latlon});
+      var lat = e.latlng.lat;
+      var lon = e.latlng.lng;
+      var popup_template = Mustache.render(PopupTemplate, {lat: lat, lon: lon});
      
       popup.setLatLng(e.latlng)
            .setContent(popup_template)
            .openOn(map);
      
       /* Load the save-to-excel Use Case after the DOM has been set */
-      UC_SaveExcelFile.init('#pop-up');
+      UC_SaveExcelFile.init('#pop-up-buttons');
+      /* Load the import-excel-file Use Case */
+      //UC_ImportExcelFile.init('#pop-up-buttons');
     }
     
     /* Prepare map for action */
