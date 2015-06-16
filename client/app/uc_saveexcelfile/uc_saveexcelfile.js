@@ -19,8 +19,14 @@ define([
   */
   function preparedata(latlon){
     var ws = {};
-    ws['A1'] = {t:'n', 
-                v:'1'};    //Skriv lat lon Fortsätt HÄÄÄÄÄÄÄR!!!!!!!!!!!!!!!!!!!!!!!!!
+    ws['A1'] = {t: 's', 
+                v: 'lat'};
+    ws['B1'] = {t: 'n', 
+                v: latlon.lat};
+    ws['A2'] = {t: 's', 
+                v: 'lon'};
+    ws['B2'] = {t: 'n', 
+                v: latlon.lon};
     
     ws['!ref'] = 'A1:D4'; //Needed for specifying print "area"
     return ws;

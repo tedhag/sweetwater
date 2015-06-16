@@ -1,9 +1,24 @@
 body { 
-  background: #88BC86; }
+  background: #333333; }
 
-#map { 
-  height: 80%;
-  width: 100%;
+#map {
   position: absolute;
-  top: 0px;
-  left: 0px; }
+  width: 100%;
+  height: 90%;
+  top: 0px; }
+
+#control-box {
+  color: lightgray;
+  background-color: #333333;
+  box-shadow: 1px 1px 5px #000;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  opacity: 0.9;
+}
+
+#control-box h3 {
+  margin: 0px;
+}
+
+

@@ -6,19 +6,21 @@ define([
   'text!uc_showmap/map_template.html',
   'uc_showmap/map_vattenweb',
   'uc_showmap/map_openstreet',
+  'uc_showmap/control_box',
   'text!uc_showmap/popup_template.html',
   'uc_saveexcelfile/uc_saveexcelfile',
-  'uc_importexcelfile/uc_importexcelfile'
+   'uc_importexcelfile/uc_importexcelfile'
 ], function ( $, 
               L, 
               cssutil,
               Mustache, 
               MapTemplate, 
               Vattenweb, 
-              Openstreet, 
+              Openstreet,
+              ControlBox,
               PopupTemplate, 
-              UC_SaveExcelFile, 
-              UC_ImportExcelFile ) {
+              UC_SaveExcelFile,
+              UC_ImportExcelFile) {
   
   var init = function (element){
     /* Load leaflet css */
@@ -35,28 +37,29 @@ define([
     var startPos = new L.LatLng(61.93971314997426, 16.54225424576134); //Almost center Sweden.
     map.setView(startPos, 3);
     
+    /* Add a control box to map */
+    ControlBox.init(map);
+    
     /* Add a pop-up */
     var popup = L.popup();
     function onMapClick(e) {
-      
+
       /*Load template for holding the popup with latlon as data */
-      var lat = e.latlng.lat;
-      var lon = e.latlng.lng;
-      var popup_template = Mustache.render(PopupTemplate, {lat: lat, lon: lon});
-     
+      var latlon = {lat: e.latlng.lat, lon: e.latlng.lng };
+      var popup_template = Mustache.render(PopupTemplate, latlon);
+
       popup.setLatLng(e.latlng)
            .setContent(popup_template)
            .openOn(map);
-     
+
       /* Load the save-to-excel Use Case after the DOM has been set */
-      UC_SaveExcelFile.init('#pop-up-buttons');
-      /* Load the import-excel-file Use Case */
-      //UC_ImportExcelFile.init('#pop-up-buttons');
+      UC_SaveExcelFile.init('#pop-up-buttons', latlon);
+            
     }
     
     /* Prepare map for action */
     map.on('click', onMapClick);
-    
+
   }
   
   return {

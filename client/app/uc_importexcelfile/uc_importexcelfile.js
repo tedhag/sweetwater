@@ -12,7 +12,7 @@ define([
   /* Init Use Case */
   var init = function (element){
     
-    /* Add save button to leaflet pop-up */
+    /* Add import button to leaflet control */
     var template = Mustache.render(ImportButtonTemplate);
     $(element).append(template);
     
