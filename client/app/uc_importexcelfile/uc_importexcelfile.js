@@ -14,12 +14,9 @@ define([
   
   /* Where it all happens */ 
   var execute = function(e, map){
-    console.log("execute import");
-    console.log(e);
     
     var files = e.target.files;
     var f = files[0];
-    console.log(f.name);
     
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -45,7 +42,7 @@ define([
   
   /* Init Use Case */
   var init = function (element, map){
-    
+    /* Load CSS for this UC */
     CssUtil.load('app/uc_importexcelfile/uc_importexcelfile.css');
     
     /* Add import button to leaflet control */
