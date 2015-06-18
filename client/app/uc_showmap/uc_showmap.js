@@ -12,7 +12,7 @@ define([
    'uc_importexcelfile/uc_importexcelfile'
 ], function ( $, 
               L, 
-              cssutil,
+              CssUtil,
               Mustache, 
               MapTemplate, 
               Vattenweb, 
@@ -24,7 +24,7 @@ define([
   
   var init = function (element){
     /* Load leaflet css */
-    cssutil.load('http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css');
+    CssUtil.load('http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css');
     
     /*Load template for holding the map */
     var map_template = Mustache.render(MapTemplate);

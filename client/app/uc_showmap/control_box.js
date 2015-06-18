@@ -18,6 +18,9 @@ define([
     onAdd: function (map) {
       // create the control container with a particular class name
       var container = L.DomUtil.create('div', 'my-control');
+      // Prevent further event propagation, ie. no click events behind the control-box
+      L.DomEvent.disableClickPropagation(container);
+      
       var control_box = Mustache.render(ControlBoxTemplate);
       container.innerHTML = control_box;
       
@@ -29,7 +32,7 @@ define([
     map.addControl( new ControlBox() );
     
     /* Load the import-excel Use Case */
-    UC_ImportExcelFile.init('#control-box');
+    UC_ImportExcelFile.init('#control-box', map);
   }
   
   return {

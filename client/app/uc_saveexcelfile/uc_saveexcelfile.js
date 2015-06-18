@@ -1,7 +1,7 @@
 define([
   'jquery',
   'mustache',
-  'text!uc_saveexcelfile/savebutton_template.html',
+  'text!uc_saveexcelfile/savebutton_template.html'
 ], function ($, Mustache, SaveButtonTemplate) {
   /* At the moment of writing this code I was not able to get the import of js-xlsx libs
      working properly with Require.js, so the needed js-xlxs libs are imported in the index.html.
