@@ -34,7 +34,9 @@ define([
   
   /* Class for holding Excel Workbook data */
   function Workbook() {
-	if(!(this instanceof Workbook)) return new Workbook();
+	if(!(this instanceof Workbook)){ 
+        return new Workbook();
+    }
 	this.SheetNames = [];
 	this.Sheets = {};
   }
@@ -43,8 +45,9 @@ define([
   function toHexArray(s) {
     var buf = new ArrayBuffer(s.length);
     var view = new Uint8Array(buf);
-    for (var i=0; i!=s.length; ++i) 
+    for (var i=0; i!=s.length; ++i){ 
       view[i] = s.charCodeAt(i) & 0xFF;
+    }
     return buf;
   }
 
@@ -72,7 +75,7 @@ define([
     $("#save-excel-button").on('click', function(){
       execute(latlon);
     });
-  }
+  };
   
   return {
       init: init

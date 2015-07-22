@@ -33,7 +33,7 @@ define([
     
     /* Load the import-excel Use Case */
     UC_ImportExcelFile.init('#control-box', map);
-  }
+  };
   
   return {
         init: init
