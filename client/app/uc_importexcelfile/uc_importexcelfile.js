@@ -21,7 +21,7 @@ define([
             var sheet_name = workbook.SheetNames[0];
             var sheet = workbook.Sheets[sheet_name];
             var latlon = {lat: sheet['B1'].v,
-                    lon: sheet['B2'].v };
+                          lon: sheet['B2'].v };
       
             /* Add a pop-up on the map*/
             var popup_template = Mustache.render(PopupTemplate, latlon);
