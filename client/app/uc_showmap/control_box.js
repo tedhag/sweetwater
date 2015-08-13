@@ -3,12 +3,14 @@ define([
   'mustache',
   'leaflet',
   'text!uc_showmap/control_box_template.html',
-  'uc_importexcelfile/uc_importexcelfile'
+  'uc_importexcelfile/uc_importexcelfile',
+  'uc_searchbyname/uc_searchbyname'
 ], function ( $,
               Mustache,
               L,
               ControlBoxTemplate,
-              UC_ImportExcelFile) {
+              UC_ImportExcelFile,
+              UC_SearchByName) {
   
   var ControlBox = L.Control.extend({
     options: {
@@ -33,6 +35,9 @@ define([
     
     /* Load the import-excel Use Case */
     UC_ImportExcelFile.init('#control-box', map);
+    
+    /* Load the search by name Use Case */
+    UC_SearchByName.init('#control-box', map);
   };
   
   return {

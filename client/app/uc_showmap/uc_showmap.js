@@ -31,8 +31,8 @@ define([
     $(element).html(map_template);
     
     /* Create the map layer */
-    var map = Vattenweb.create();
-    //var map = Openstreet.create();
+    //var map = Vattenweb.create();
+    var map = Openstreet.create();
     
     var startPos = new L.LatLng(61.93971314997426, 16.54225424576134); //Almost center Sweden.
     map.setView(startPos, 3);
