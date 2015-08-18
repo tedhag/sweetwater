@@ -13,7 +13,7 @@ define([
     var execute = function (ui, map) {
       
       var popup = L.popup();
-      var latlon = {lat: ui.item.position.lat, lon: ui.item.position.lng };
+      var latlon = {name: ui.item.value , lat: ui.item.position.lat, lon: ui.item.position.lng };
       var popup_template = Mustache.render(PopupTemplate, latlon);
 
       popup.setLatLng(ui.item.position)
@@ -71,6 +71,10 @@ define([
         select: function(event, ui) {
           // Selected element in text field comes in the ui argument
           execute(ui, map);
+        },
+        close: function(event, ui) {
+          //Reset the search field after select
+          this.value = "";
         }
       });
 
