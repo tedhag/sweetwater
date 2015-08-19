@@ -56,7 +56,9 @@ define([
             response($.map( data.geonames, function( item ) {
               return {
                 //Label is used for the display name
-                label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+                label: item.name + (item.adminName1 ? ", " +
+                                    item.adminName1 : "") + ", " + 
+                                    item.countryName,
                 //value is just used for the position on map
                 value: item.name,
                 position: {lat: item.lat, lng: item.lng } 
