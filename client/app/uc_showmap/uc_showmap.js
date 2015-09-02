@@ -6,6 +6,7 @@ define([
   'text!uc_showmap/map_template.html',
   'uc_showmap/map_vattenweb',
   'uc_showmap/map_openstreet',
+  'uc_showmap/map_layered',
   'uc_showmap/control_box',
   'text!uc_showmap/popup_template.html',
   'uc_saveexcelfile/uc_saveexcelfile',
@@ -17,6 +18,7 @@ define([
               MapTemplate, 
               Vattenweb, 
               Openstreet,
+              Layered,
               ControlBox,
               PopupTemplate, 
               UC_SaveExcelFile,
@@ -32,7 +34,8 @@ define([
     
     /* Create the map layer */
     //var map = Vattenweb.create();
-    var map = Openstreet.create();
+    //var map = Openstreet.create();
+    var map = Layered.create();
     
     var startPos = new L.LatLng(61.93971314997426, 16.54225424576134); //Almost center Sweden.
     map.setView(startPos, 3);
