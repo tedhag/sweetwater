@@ -1,9 +1,9 @@
 define([
   'leaflet',
-  'proj4leaflet',
-  'proj4'
-], function (L) {
+  'uc_showmap/layers/layer_vattenweb'
+], function (L, VattenWebLayer) {
 
+  /*
   L.TileLayer.WMTS = L.TileLayer.extend({
     wmtsOptions: {
         'SERVICE': 'WMTS',
@@ -26,8 +26,9 @@ define([
         L.TileLayer.prototype.initialize(url + '?' + bar.join('&'), options);
     },
   });
-  
+  */
   var create = function(){
+    /*
     var waterwebmapUrl = 'http://vattenwebb-tst.smhi.se/tiles/vw';
     var wmsLayer = new L.TileLayer.WMTS(waterwebmapUrl + '/wmts', {
       LAYER: 'vw',
@@ -58,6 +59,11 @@ define([
       maxZoom: 10,
       tileSize: 512
 	});
+    */
+    
+    var map = L.map('map');
+    var layer = VattenWebLayer.create();
+    layer.addTo(map);
     
     return map;
   };
