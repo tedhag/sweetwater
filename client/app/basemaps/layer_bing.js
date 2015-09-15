@@ -119,9 +119,9 @@ define([
       }
     });
 
-    var create = function(){
+    var create = function(bing_type){
       var bing = new L.BingLayer("AkBBjjX4UBgnl9p7AN4-hGbYiYPt5TaxaIqNWx6rrzmOHDReI9XUocR99u_Gwa24", 
-                               { 'type' : 'AerialWithLabels', crs: L.CRS.EPSG3857});
+                               { 'type' : bing_type, crs: L.CRS.EPSG3857});
      
   
       return bing;

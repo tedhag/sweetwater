@@ -6,11 +6,10 @@ define([
     var create = function(){
     var layer = L.esri.basemapLayer('NationalGeographic');
   
-      return layer;
-    }
+    return layer;
+  }
     
     return {
       create: create
-    };
-  
+  };
 });

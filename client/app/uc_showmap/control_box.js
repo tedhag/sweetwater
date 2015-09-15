@@ -4,13 +4,15 @@ define([
   'leaflet',
   'text!uc_showmap/control_box_template.html',
   'uc_importexcelfile/uc_importexcelfile',
-  'uc_searchbyname/uc_searchbyname'
+  'uc_searchbyname/uc_searchbyname',
+  'uc_changebasemap/uc_changebasemap'
 ], function ( $,
               Mustache,
               L,
               ControlBoxTemplate,
               UC_ImportExcelFile,
-              UC_SearchByName) {
+              UC_SearchByName,
+              UC_ChangeBasemap) {
   
   var ControlBox = L.Control.extend({
     options: {
@@ -38,6 +40,9 @@ define([
     
     /* Load the search by name Use Case */
     UC_SearchByName.init('#control-box', map);
+    
+    /* Load the change base map Use Case */
+    UC_ChangeBasemap.init('#control-box', map);
   };
   
   return {
