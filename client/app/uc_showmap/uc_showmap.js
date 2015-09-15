@@ -27,7 +27,7 @@ define([
     var map = L.map('map');
     layer.addTo(map);
     var startPos = new L.LatLng(61.93971314997426, 16.54225424576134); //Almost center Sweden.
-    map.setView(startPos, 4);
+    map.setView(startPos, 3);
     
     /* Init pop-up when click a position on map */
     UC_SelectPosition.init(map);

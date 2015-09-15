@@ -5,7 +5,7 @@ define([
   'text!uc_showmap/control_box_template.html',
   'uc_importexcelfile/uc_importexcelfile',
   'uc_searchbyname/uc_searchbyname',
-  'uc_changebasemap/uc_changebasemap'
+  'uc_selectbasemap/uc_selectbasemap'
 ], function ( $,
               Mustache,
               L,
