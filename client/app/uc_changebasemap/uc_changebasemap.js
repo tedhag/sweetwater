@@ -18,14 +18,12 @@ define([
     
     /* Change the base map*/
     var execute = function (map, mapname) {
-      console.log(mapname);
       
       var latlon = map.getCenter();
       var zoom = map.getZoom();
       
       map.eachLayer(function (layer) {
         map.removeLayer(layer);
-        console.log("remove: "+layer._url);
       });
       
       L.setOptions(map, {crs: L.CRS.EPSG3857 });  
