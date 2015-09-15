@@ -1,4 +1,5 @@
 define([
+  'jquery',
   'leaflet',
   'cssutil',
   'mustache',
@@ -6,7 +7,8 @@ define([
   'basemaps/layer_esri',
   'uc_showmap/control_box',
   'uc_selectpositiononmap/uc_selectpositiononmap'
-], function ( L, 
+], function ( $,
+              L, 
               CssUtil,
               Mustache, 
               MapTemplate, 
