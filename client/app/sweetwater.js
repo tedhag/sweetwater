@@ -7,7 +7,9 @@ require.config({
     'mustache': 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min',
     'proj4leaflet': 'lib/proj4leaflet',
     'proj4': 'lib/proj4',
-    'esri': 'http://cdn.jsdelivr.net/leaflet.esri/1.0.0/esri-leaflet'
+    'esri': 'http://cdn.jsdelivr.net/leaflet.esri/1.0.0/esri-leaflet',
+    'shp' : 'lib/shp.min',
+    'geojson': 'lib/geojson-vt-dev'
   },
   shim: {
     'jquery-ui': {

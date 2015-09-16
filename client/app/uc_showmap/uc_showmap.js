@@ -25,11 +25,12 @@ define([
     $(element).html(map_template);
     
     /* Init with default map */
-    var layer = Esri.create();
     var map = L.map('map');
+    var layer = Esri.create();
     layer.addTo(map);
     var startPos = new L.LatLng(61.93971314997426, 16.54225424576134); //Almost center Sweden.
     map.setView(startPos, 3);
+    map.addControl(new L.control.scale({ imperial: false, position: 'bottomleft'}));
     
     /* Init pop-up when click a position on map */
     UC_SelectPosition.init(map);

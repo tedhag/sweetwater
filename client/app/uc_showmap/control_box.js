@@ -5,14 +5,16 @@ define([
   'text!uc_showmap/control_box_template.html',
   'uc_importexcelfile/uc_importexcelfile',
   'uc_searchbyname/uc_searchbyname',
-  'uc_selectbasemap/uc_selectbasemap'
+  'uc_selectbasemap/uc_selectbasemap',
+  'uc_selectfeaturelayer/uc_selectfeaturelayer'
 ], function ( $,
               Mustache,
               L,
               ControlBoxTemplate,
               UC_ImportExcelFile,
               UC_SearchByName,
-              UC_ChangeBasemap) {
+              UC_SelectBasemap,
+              UC_SelectFeatureLayer) {
   
   var ControlBox = L.Control.extend({
     options: {
@@ -42,7 +44,10 @@ define([
     UC_SearchByName.init('#control-box', map);
     
     /* Load the change base map Use Case */
-    UC_ChangeBasemap.init('#control-box', map);
+    UC_SelectBasemap.init('#control-box', map);
+    
+    /* Load the view feature layer Use Case */
+    UC_SelectFeatureLayer.init('#control-box', map);
   };
   
   return {
