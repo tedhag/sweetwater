@@ -91,6 +91,7 @@ L.CanvasTiles =  L.TileLayer.Canvas.extend({
     loadShapeFile : function(url) {     
         var self = this;
 
+      /* using promises (then) */
         shp(url).then(function(geojson){
             console.log("Shapefile loaded, processing data");
             self.loadData(geojson);
