@@ -38,7 +38,7 @@ define([
     /* Using javascript promises (then) */
     shp(url).then(function(geojson){
       console.log("Shapefile loaded, processing data...");
-      loadData(geojson);
+      //loadData(geojson);
     });
   };
   
