@@ -3,5 +3,15 @@
   color: dodgerblue;
 }
 
+#import-pop-up p {
+  margin: 0px;
+  color: dodgerblue;
+}
+
+#uploadfile-button:hover{
+  
+  cursor:pointer;
+}
+
 
 

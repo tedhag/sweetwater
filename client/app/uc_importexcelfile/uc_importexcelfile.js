@@ -7,6 +7,10 @@ define([
     'text!uc_importexcelfile/popup_template.html'
 ], function ($, L, Mustache, CssUtil, ImportButtonTemplate, PopupTemplate) {
 
+    var getFile = function getFile(){
+		document.getElementById("uploadfile").click();
+	};
+    
     /* Where it all happens */
     var execute = function (e, map) {
         var files = e.target.files;
@@ -36,18 +40,32 @@ define([
   
     /* Init Use Case */
     var init = function (element, map) {
-        /* Load CSS for this UC */
-        CssUtil.load('app/uc_importexcelfile/uc_importexcelfile.css');
+      /* Load CSS for this UC */
+      CssUtil.load('app/uc_importexcelfile/uc_importexcelfile.css');
+
+      /* Add import button to leaflet control */
+      var template = Mustache.render(ImportButtonTemplate);
+      $(element).append(template);
     
-        /* Add import button to leaflet control */
-        var template = Mustache.render(ImportButtonTemplate);
-        $(element).append(template);
-    
-        /* Add listner to import button */
-        $("#import-excel-button").on('change', function (e) {
+      /* Add listner to import button */
+      /*  
+      $("#import-excel-button").on('change', function (e) {
             execute(e, map);
         });
-    
+      */
+      
+      /* listeners for change and click on file upload */
+      $("#uploadfile").on('change', function(e){
+            console.log("change");
+            execute(e,map);
+      });
+		
+      $("#uploadfile-button").on('click', function(e){
+          console.log("click");
+          getFile();
+      });
+      /* -----------------------------------------------*/
+
     };
   
     return {
