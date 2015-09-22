@@ -9,4 +9,4 @@ Some features you may find in this project are:
 * Importing av file using js-xlsx and customize file upload button in app/uc_importexcelfile
 * Searching and finding a lat:lon using geonames in app/uc_searchbyname
 * Selecting different base map layer in app/uc_selectbasemap
-* Showing a position pop-up on map in app/uc_selectpositiononmap
+* Showing a position pop-up on map with a drop-down feature in app/uc_selectpositiononmap
