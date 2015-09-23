@@ -1,15 +1,14 @@
 L.CanvasTiles =  L.TileLayer.Canvas.extend({
-    
         
     tileOptions : {
-        maxZoom: 20,  // max zoom to preserve detail on
-        tolerance: 5, // simplification tolerance (higher means simpler)
-        extent: 4096, // tile extent (both width and height)
-        buffer: 64,   // tile buffer on each side
-        debug: 0,      // logging level (0 to disable, 1 or 2)
+      maxZoom: 20,  // max zoom to preserve detail on
+      tolerance: 5, // simplification tolerance (higher means simpler)
+      extent: 4096, // tile extent (both width and height)
+      buffer: 64,   // tile buffer on each side
+      debug: 0,      // logging level (0 to disable, 1 or 2)
 
-        indexMaxZoom: 0,        // max zoom in the initial tile index
-        indexMaxPoints: 100000, // max number of points per tile in the index
+      indexMaxZoom: 0,        // max zoom in the initial tile index
+      indexMaxPoints: 100000, // max number of points per tile in the index
     },
     
     tileIndex: null, _loaded : false,
@@ -91,7 +90,6 @@ L.CanvasTiles =  L.TileLayer.Canvas.extend({
     loadShapeFile : function(url) {     
         var self = this;
 
-      /* using promises (then) */
         shp(url).then(function(geojson){
             console.log("Shapefile loaded, processing data");
             self.loadData(geojson);

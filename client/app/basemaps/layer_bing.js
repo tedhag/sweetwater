@@ -131,9 +131,3 @@ define([
       create: create
     };
 });
-
-/*
-L.bingLayer = function (key, options) {
-    return new L.BingLayer(key, options);
-};
-*/

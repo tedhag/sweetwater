@@ -9,7 +9,7 @@ require.config({
     'proj4': 'lib/proj4',
     'esri': 'http://cdn.jsdelivr.net/leaflet.esri/1.0.0/esri-leaflet',
     'shp' : 'lib/shp.min',
-    'geojson': 'lib/geojson-vt-dev'
+    'geojsonvt': 'lib/geojson-vt-dev'
   },
   shim: {
     'jquery-ui': {

@@ -10,6 +10,8 @@ define([
     var toggle_basins = function (map, checked) {
       console.log('checkbox basins is marked '+checked);
       var layer = BasinsLayer.create('data/shape/subid.zip');
+      //map.addLayer(layer);
+      
     };
   
     /* Init Use Case */
