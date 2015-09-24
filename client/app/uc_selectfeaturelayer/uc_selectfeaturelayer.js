@@ -6,14 +6,6 @@ define([
   'uc_selectfeaturelayer/layer_basins'
 ], function (L, CssUtil, Mustache, FeatureLayerTemplate, BasinsLayer) {
     
-    
-    var toggle_basins = function (map, checked) {
-      console.log('checkbox basins is marked '+checked);
-      var layer = BasinsLayer.create('data/shape/subid.zip');
-      //map.addLayer(layer);
-      
-    };
-  
     /* Init Use Case */
     var init = function (element, map) {
        /* Load CSS for this UC */
@@ -23,11 +15,21 @@ define([
       var template = Mustache.render(FeatureLayerTemplate);
       $(element).append(template);
       
-      var subid = document.getElementById('subid');
-      subid.addEventListener('change', function(){
-        toggle_basins(map, subid.checked);
+      BasinsLayer.create(map, function(map, layer){
+        window.addEventListener("basinsloaded", function(e){
+          var subid = document.getElementById('subid');
+          subid.disabled=false;
+          subid.addEventListener('change', function(){
+            console.log('checkbox basins is marked '+subid.checked);
+            if (subid.checked){
+              map.addLayer(layer);
+            }
+            else{
+              map.removeLayer(layer);
+            }
+          });
+        });
       });
-
     };
   
     return {

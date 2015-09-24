@@ -6,19 +6,26 @@ define([
   
   L.CanvasTiles =  L.TileLayer.Canvas.extend({
     
+    tileOptions: null,
     tileIndex: null,
     
-    initialize: function (tileindex, options, callContext) {
-      this.tileIndex = tileindex;
-      this._callContext = callContext;
+    getTileIndex : function() {
+      return this.tileIndex;
+    },
+    
+    initialize: function (tileIndex, tileoptions, options) {
+      this.tileIndex = tileIndex;
+      this.tileOptions = tileoptions;
+      //this._callContext = callContext;
       L.setOptions(this, options);
 
-      var self = this;
       /* function that needs to be overriden when
       extending L.TileLayer.Canvas */
       this.drawTile = function (tileCanvas, tilePoint, zoom) {
           this.draw(tileCanvas, tilePoint, zoom);
       };
+      
+      
       return this;
     },
     
@@ -99,9 +106,7 @@ define([
       }
     },
     
-    
   });
-  
   
   /* 
   load shap file using shp from: 
@@ -109,10 +114,10 @@ define([
   and converitng to GeoJSON geojson-vt from:
     https://github.com/mapbox/geojson-vt
   */
-  var loadshapefile = function(url){
+  var loadshapefile = function(tileoptions, fn){
     console.log("Shapefile loading...");
     /* Using javascript promises (then) */
-    ShapeFile(url).then(function(data){
+    ShapeFile('data/shape/subid.zip').then(function(data){
       console.log("Shapefile loaded, processing data...");
       console.log("Prepare GeoJSON...");
       for(var i in data.features) {
@@ -121,37 +126,32 @@ define([
       }
       console.log(data.features[0]);
 
-      var tileoptions = {
-          maxZoom: 20,  // max zoom to preserve detail on
-          tolerance: 5, // simplification tolerance (higher means simpler)
-          extent: 4096, // tile extent (both width and height)
-          buffer: 64,   // tile buffer on each side
-          debug: 0,      // logging level (0 to disable, 1 or 2)
-          indexMaxZoom: 0,        // max zoom in the initial tile index
-          indexMaxPoints: 100000, // max number of points per tile in the index
-      };
-
       var tileindex = GeoJsonVT(data, tileoptions);
       console.log(tileindex);
-      //var event = new CustomEvent("basinsloaded", { detail: { msg: 'data loaded' }, cancelable: true });
-      window.dispatchEvent(new CustomEvent("basinsloaded", 
-                                           { detail: { msg: 'data loaded' }, cancelable: true }));   
-        
-      return tileindex;
+      
+      fn(tileindex);
+      window.dispatchEvent(
+          new CustomEvent("basinsloaded", { detail: { msg: 'basins loaded' }, cancelable: true }));
     });
   };
   
-  
-  var create = function(file){
-    var tileindex = loadshapefile(file);
+  var create = function(map, fn){
+    var tileoptions = {
+      maxZoom: 20,  // max zoom to preserve detail on
+      tolerance: 5, // simplification tolerance (higher means simpler)
+      extent: 4096, // tile extent (both width and height)
+      buffer: 64,   // tile buffer on each side
+      debug: 0, // logging level (0 to disable, 1 or 2)
+      indexMaxZoom: 0, // max zoom in the initial tile index
+      indexMaxPoints: 100000, // max number of points per tile in the index
+    };
     
-    window.addEventListener("basinsloaded", function(e) { 
-      e.stopPropagation();
-      var layer = new L.CanvasTiles(tileindex, {tileSize:256});
-      console.log('a layer');
-      
-      return layer;
-     });
+    loadshapefile(tileoptions, function(tileindex){
+      var layer = new L.CanvasTiles(tileindex, tileoptions, {tileSize:256, 
+                                                             padding: 5});
+      console.log('layer created');
+      fn(map, layer);
+    });
   }
     
   return {
