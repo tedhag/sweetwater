@@ -9,7 +9,7 @@ define([
     /* Init Use Case */
     var init = function (element, map) {
        /* Load CSS for this UC */
-      CssUtil.load('app/uc_selectfeaturelayer/selectfeaturelayer.css');
+      CssUtil.load('uc_selectfeaturelayer/selectfeaturelayer.css');
 
       /* Add select field to leaflet control */
       var template = Mustache.render(FeatureLayerTemplate);

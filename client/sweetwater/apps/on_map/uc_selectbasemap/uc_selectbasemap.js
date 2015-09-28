@@ -66,7 +66,7 @@ define([
     /* Init Use Case */
     var init = function (element, map) {
       /* Load CSS for this UC */
-      CssUtil.load('app/uc_selectbasemap/selectbasemap.css');
+      CssUtil.load('uc_selectbasemap/selectbasemap.css');
 
       /* Add select field to leaflet control */
       var template = Mustache.render(ChangeBasemapTemplate);

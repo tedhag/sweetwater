@@ -41,7 +41,7 @@ define([
     /* Init Use Case */
     var init = function (element, map) {
       /* Load CSS for this UC */
-      CssUtil.load('app/uc_importexcelfile/uc_importexcelfile.css');
+      CssUtil.load('uc_importexcelfile/uc_importexcelfile.css');
 
       /* Add import button to leaflet control */
       var template = Mustache.render(ImportButtonTemplate);

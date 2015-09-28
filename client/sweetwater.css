@@ -1,0 +1,118 @@
+
+html body {
+  /*
+  background-image: url(../img/river.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+  width: 100%;
+  height: 100%;
+  margin:0px;
+  padding:0px;
+}
+
+#container{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100%;
+  width:100%;
+  padding: 20px 0 20px 0;
+}
+
+#row1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#row2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.box{
+  width: 450px;
+  height: 450px;
+}
+
+.map-box{
+  background-image: url(sweetwater/img/map.png);
+  background-size: cover;
+}
+
+.text-box{
+  background-color: rgb(28, 33, 33);
+  color: slategray;
+}
+
+.img-box{
+  background-image: url(sweetwater/img/river.jpg);
+  background-size: cover;
+}
+
+@media (min-width: 800px) and (max-width: 980px) {
+  #row1{
+  flex-direction: column-reverse;
+  }
+  
+  #row2{
+  flex-direction: column;
+  }
+  
+  .box{
+    width: 750px;
+    height: 650px;
+  }
+}
+
+@media (max-width: 800px) {
+  #row1{
+  flex-direction: column-reverse;
+  }
+  
+  #row2{
+  flex-direction: column;
+  }
+  
+  .box{
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 550px) {
+  #row1{
+  flex-direction: column-reverse;
+  }
+  
+  #row2{
+  flex-direction: column;
+  }
+  
+  .box{
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-height: 900px) {
+  .box{
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-height: 800px) {
+  .box{
+    width: 360px;
+    height: 360px;
+  }
+}
+

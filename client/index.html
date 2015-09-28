@@ -1,19 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Leaflet-test</title>
+  <title>Sweetwater</title>
   
-  <!-- *** Script loading needed by Excel export/import *** -->
-  <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.core.min.js"></script>
-  <script type="text/javascript" src="app/lib/Blob.js"></script>
-  <script type="text/javascript" src="app/lib/FileSaver.js"></script>
-  <!-- ********************************************* -->
-  
-  <script data-main="app/sweetwater" src="app/lib/require.js"></script>
-  <link rel="stylesheet" href="css/sweetwater.css" />
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="sweetwater.css" />
 </head>
 <body>
-  <div class="container" id="sweetwater"></div>
+  <div id="container">
+    <div id="row1">
+      <div id="map" class="box map-box"></div>
+      <div id="selection" class="box text-box">selections</div>
+    </div>
+    <div id="row2">
+      <div id="info" class="box text-box">info</div>
+      <div id="image" class="box img-box"></div>
+    </div>
+  </div>
 </body>
 </html>

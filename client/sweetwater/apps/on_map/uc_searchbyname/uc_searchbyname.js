@@ -26,7 +26,7 @@ define([
     /* Init Use Case */
     var init = function (element, map) {
       /* Load CSS for this UC */
-      CssUtil.load('app/uc_searchbyname/uc_searchbyname.css');
+      CssUtil.load('uc_searchbyname/uc_searchbyname.css');
 
       /* Add search field to leaflet control */
       var template = Mustache.render(SearchByNameTemplate);
