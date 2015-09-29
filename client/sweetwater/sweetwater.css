@@ -51,7 +51,6 @@ html body {
 }
 
 .text-box{
-  /*background-color: rgb(28, 33, 33);*/
   background-color: black;
   color: slategray;
 }
@@ -62,49 +61,70 @@ html body {
 }
 
 @media (min-width: 800px) and (max-width: 980px) {
+  #container{
+    width:100%;
+    padding: 0;
+  } 
+  
   #row1{
-  flex-direction: column-reverse;
+    width:100%;
+    flex-direction: column-reverse;
   }
   
   #row2{
-  flex-direction: column;
+    width:100%;
+    flex-direction: column;
   }
   
   .box{
-    width: 580px;
+    width: 100%;
     height: 480px;
   }
+  
+  #start-map{
+    height:  800px;
+  }
+  
+  #menu{
+    height:  50px;
+  }
+  
+  #nav-menu a {
+    height:  50px;
+  }
+  
 }
 
 @media (max-width: 800px) {
+  #container{
+    width:100%;
+    padding: 0;
+  } 
+  
   #row1{
-  flex-direction: column-reverse;
+    width:100%;
+    flex-direction: column-reverse;
   }
   
   #row2{
-  flex-direction: column;
+    width:100%;
+    flex-direction: column;
   }
   
   .box{
-    width: 450px;
-    height: 450px;
+    width: 100%;
+    height: 480px;
+  }
+  
+  #start-map{
+    height:  600px;
+  }
+  
+  #menu{
+    height:  50px;
   }
 }
 
-@media (max-width: 550px) {
-  #row1{
-  flex-direction: column-reverse;
-  }
-  
-  #row2{
-  flex-direction: column;
-  }
-  
-  .box{
-    width: 400px;
-    height: 400px;
-  }
-}
 
 @media (max-height: 900px) {
   .box{
@@ -120,4 +140,33 @@ html body {
   }
 }
 
+@media (max-height: 600px) {
+  #container{
+    width:100%;
+    padding: 0;
+  } 
+  
+  #row1{
+    width:100%;
+    flex-direction: column-reverse;
+  }
+  
+  #row2{
+    width:100%;
+    flex-direction: column;
+  }
+  
+  .box{
+    width: 100%;
+    height: 480px;
+  }
+  
+  #start-map{
+    height:  400px;
+  }
+  
+  #menu{
+    height:  50px;
+  }
+}
 

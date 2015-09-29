@@ -12,9 +12,11 @@ require.config({
 
 require([ 
   'on_start/uc_showmap',
+  'on_start/uc_showmenu',
+], function (uc_showmap,
+             uc_showmenu) {
   
-], function (uc_showmap) {
-  
-  uc_showmap.init('start-map');  
+  uc_showmap.init('start-map');
+  uc_showmenu.init('#menu');
   
 });
