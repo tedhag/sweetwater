@@ -4,7 +4,7 @@
 
 #nav-menu a {
   text-decoration: none;
-  height: 480px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,3 +14,5 @@
   font-family: Verdana;
   color: rgba(255, 255, 255, 0.9);
 }
+
+
