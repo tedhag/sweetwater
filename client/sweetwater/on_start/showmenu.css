@@ -1,24 +1,38 @@
-.material-icons {
-  font-size: 36px;
-}
-
-#nav-menu a {
-  text-decoration: none;
-  /*height: 50px;*/
+#nav-menu{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  
-  font-size: 36px;
-  font-family: Calibri;
-  color: rgba(208, 208, 208, 0.9);
+  flex-direction: column;
+  font-family: lato, verdana;
 }
 
-#nav-menu i:hover{
-  color: rgba(0, 0, 0, 0.9);
-  background-color: gray;
-  font-size: 40px;
+#nav-menu p{
+  vertical-align: middle;
+  margin: 0px;
+  padding: 10px 1px 10px 10px;
+  font-size: 20px;
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 30;
+  letter-spacing: 3px;
+  color: white;
+  border-bottom: solid #4097ce 1px;
 }
 
+#nav-menu i {
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  font-size: 27px;
+}
+
+#nav-menu .button {
+  text-decoration: none;
+  margin: 0px;
+  padding: 5px 10px;
+  font-size: 15px;
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 50;
+  letter-spacing: 2px;
+  color: white;
+  border-bottom: solid #4097ce 1px;
+}
 
