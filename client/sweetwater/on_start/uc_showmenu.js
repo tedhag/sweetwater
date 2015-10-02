@@ -20,7 +20,7 @@ define([
   
   var init = function (element){
     /* Load menu css */
-    CssUtil.load('sweetwater/on_start/showmenu.css');
+    //CssUtil.load('sweetwater/on_start/showmenu.css');
     
     var template = Mustache.render(ShowMenuTemplate);
     $(element).append(template);
