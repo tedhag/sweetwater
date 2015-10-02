@@ -155,24 +155,17 @@ html body {
   width: 500px;
   height: 280px;
   margin: 15px 15px;
-  background-image: url(img/river.jpg);
+  background-image: url(img/lake.jpg);
   background-size: cover;
 }
 
 /* typ Iphone */
-@media (min-width: 800px) and (max-width: 980px) and (min-height: 1500px) {
-  
-  body{
-    background-image: url(img/river.jpg);
-    background-position: bottom;
-    background-size: cover;
-  }
+@media (min-width: 300px) and (max-width: 980px) {
   
   #container{
     display: flex;
     flex-direction: column-reverse;
     padding-top: 0px;
-    height: 100px;
   } 
   
   #col1{
@@ -203,53 +196,6 @@ html body {
   .map-box{
     width: 100%;
     height: 800px;
-    margin: 0px 0px;
-  }
-  
-  .info-box{
-    width: 100%;
-    height: 380px;
-    margin: 0px 0px;
-  }
-}
-
-/* typ Iphone's  portrait */
-@media (max-width: 800px)  and (max-height: 1100px){
-    
-  #container{
-    display: flex;
-    flex-direction: column-reverse;
-    padding-top: 0px;
-  } 
-  
-  #col1{
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #col2{
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .menu-box{
-    width: 100%;
-    height: auto;
-    margin: 0px 0px;
-  }
-  
-  #nav-menu #menu-items {
-    display: none;
-  }
-  
-  .img-box{
-    display: none;
-    margin: 0px 0px;
-  }
-  
-  .map-box{
-    width: 100%;
-    height: 500px;
     margin: 0px 0px;
   }
   
