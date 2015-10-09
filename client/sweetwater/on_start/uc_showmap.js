@@ -23,8 +23,8 @@ define([
     var map = L.map(element);
     var layer = L.esri.basemapLayer('NationalGeographic');
     layer.addTo(map);
-    var startPos = new L.LatLng(62.0, 16.5); //Almost center Sweden.
-    map.setView(startPos, 4);
+    var startPos = new L.LatLng(62.7, 16.5); //Almost center Sweden.
+    map.setView(startPos, 5);
     map.addControl(new L.control.scale({ imperial: false, position: 'bottomleft'}));
    
     /* Add a control box to map */
