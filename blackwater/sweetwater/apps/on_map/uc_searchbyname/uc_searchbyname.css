@@ -1,0 +1,21 @@
+.search-name p {
+  margin: 0px;
+  color: orange;
+}
+
+
+/* override jQuery-UI autocomplete styling */
+.ui-autocomplete{
+  /* z-index quite high, due to leaflet use 1000 for some view-components */
+  z-index: 2000;
+}
+
+
+/* override jQuery-UI autocomplete styling */
+.ui-menu-item{
+  font-family: 'Helvetica Neue', 'Arial', 'Helvetica', 'sans-serif';
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
