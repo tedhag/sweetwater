@@ -9,7 +9,6 @@ html body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #ebeae6;
- 
 }
 
 #container{
@@ -73,7 +72,7 @@ html body {
 /*menu-box styling ---------------------------------------------- */
 .menu-box{
   width: 500px;
-  /*margin: 10px 10px;*/
+  margin: 10px 10px;
 }
 
 #nav-menu{
@@ -94,9 +93,9 @@ html body {
   text-transform: uppercase;
   font-weight: 20;
   letter-spacing: 5px;
-  background-color: rgba(87, 96, 103, 0.9);
+  background-color: #3b9cdf;
   color: whitesmoke;
-  border-bottom: solid rgba(35, 38, 41, 0.31) 2px;
+  border-bottom: solid rgba(21, 110, 172, 0.71) 2px;
 }
 
 #nav-menu #menu-header:hover {
@@ -107,7 +106,7 @@ html body {
   margin: 0px;
   padding: 0px 0px 0px 0px;
   font-size: 27px;
-  color: rgb(98, 186, 250); 
+  color: rgb(21, 110, 172); 
 }
 
 #nav-menu #menu-items {
@@ -122,39 +121,37 @@ html body {
   text-decoration: none;
   margin: 0px;
   padding: 10px 15px;
-  font-size: 13px;
+  font-size: 15px;
   text-align: left;
   font-weight: 50;
   letter-spacing: 2px;
-  background-color: rgba(87, 96, 103, 0.9);
+  background-color: rgb(59, 156, 223);
   color: whitesmoke;
-  border-bottom: solid rgba(35, 38, 41, 0.31) 1px;
+  border-bottom: solid rgba(21, 110, 172, 0.31) 1px;
 }
 
 .item i{
   font-size: 17px;
   padding-right: 10px;
-  color: rgba(111, 195, 104, 0.82); 
+  color: rgb(21, 110, 172); 
 }
 
 #nav-menu .item:hover {
-  background-color: rgba(70, 137, 68, 0.81);
-  /*font-size: 13px;*/
+  background-color: rgb(100, 190, 252);
+  font-size: 13px;
 }
 
-.short-text{
+.long-text{
   display:none;
 }
 
-/*
-.item:hover .short-text {
+.item:hover .long-text {
     display: block;
 }
 
-.item:hover .long-text {
-  display: none;  
+.item:hover .short-text {
+    display: none;
 }
-*/
 /*info-box styling ---------------------------------------------- */
 
 .info-box{
