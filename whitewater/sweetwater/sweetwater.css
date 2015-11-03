@@ -5,44 +5,69 @@ html body {
   margin:0px;
   padding:0px;
   
-  background-image: url(img/isobar_liggande_vit.svg);
+  background-image: url(img/isobar_white_portrait.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  /*background-color: rgb(0, 0, 0);
-  */
+  background-color: #ebeae6;
+ 
 }
 
 #container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width:100%;
-  padding-top: 30px;
-  
 }
-
-#col1 {
+/* row 1 content ------------------------------------------------*/
+#row1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  margin-left: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-#col2 {
+.img-box{
+  width: 100%;
+  height: 220px;
+  background-image: url(img/river.jpg);
+  background-size:cover;*/
+}
+
+.smhi-logo{
+  margin:10px;
+  padding: 10px;
+  height: 80px;
+}
+
+.img-box p {
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: white;
+}
+
+/* row 2 content -----------------------------------------------*/
+#row2 {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: flex-start;
   text-align: center;
-  margin-right: 15px;
 }
 
-.map-box{
+.map-box {
   width: 400px;
-  height: 580px;
+  height: 600px;
   /*margin: 10px 10px;*/
+}
+
+.map-box img {
+  max-width:100%;
+  max-height:100%;
 }
 
 /*menu-box styling ---------------------------------------------- */
@@ -82,7 +107,7 @@ html body {
   margin: 0px;
   padding: 0px 0px 0px 0px;
   font-size: 27px;
-  color: rgba(111, 195, 104, 0.84); 
+  color: rgb(98, 186, 250); 
 }
 
 #nav-menu #menu-items {
@@ -148,40 +173,6 @@ html body {
   */
 }
 
-.smhi-logo {
-  margin:0px;
-  padding: 0px;
-}
-
-.smhi-logo img{
-  margin:5px;
-  padding: 5px;
-  height: 55px;
-}
-
-/*img-box styling ---------------------------------------------- */
-.img-box{
-  width: 100%;
-  height: 200px;
-  /*margin: 10px 10px;*/
-  /*background-image: url(img/river.jpg);
-  background-size:cover;*/
-}
-
-.img-box img{
-   width:100%;
-   margin-top:-500px;
-}
-
-.bkg{
-  position: fixed;
-  width:100%;
-  height:100%;
-  background-color: rgba(255, 255, 255, 0.72);
-}
-
-
-
 /* typ Iphone */
 @media (min-width: 300px) and (max-width: 980px) {
   
@@ -232,6 +223,26 @@ html body {
 }
 
 /*
+
+#col1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  margin-left: 15px;
+}
+
+#col2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  margin-right: 15px;
+}
+
+
 @media (max-height: 950px) {
    body{
     background-image: url(img/river.jpg);

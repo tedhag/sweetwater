@@ -4,11 +4,12 @@ html body {
   height: 100%;
   margin:0px;
   padding:0px;
-  background-image: url(img/isobar.gif);
+  /*background-image: url(img/isobar.gif);*/
+  background-image: url(img/isobar_white_portrait.svg);
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #ebeae6;
+  /*background-color: #ebeae6;*/
 }
 
 #container{
@@ -42,6 +43,11 @@ html body {
   width: 400px;
   height: 555px;
   margin: 10px 10px;
+}
+
+.map-box img {
+  max-width:100%;
+  max-height:100%;
 }
 
 /*menu-box styling ---------------------------------------------- */
