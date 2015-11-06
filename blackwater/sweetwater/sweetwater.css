@@ -68,14 +68,14 @@ html body {
   align-content: center;
   text-align: center;
   margin: 0px;
-  padding: 7px 2px 7px 10px;
+  padding: 7px 2px 7px 7px;
   font-size: 30px;
   font-weight: bolder;
   text-align: left;
   text-transform: uppercase;
-  letter-spacing: 10px;
+  letter-spacing: 30px;
   background-color: rgba(175, 255, 246, 0);
-  color: rgba(0, 0, 0, 0.61);;
+  color: rgba(0, 0, 0, 0.68);;
   border-bottom: solid rgba(87, 96, 103, 0.9) 2px;
 }
 
@@ -87,7 +87,7 @@ html body {
   margin: 0px;
   padding: 0px 0px 0px 0px;
   font-size: 33px;
-  color: rgba(0, 0, 0, 0.54); 
+  color: rgba(0, 0, 0, 0.68); 
 }
 
 #nav-menu #menu-items {
@@ -107,14 +107,14 @@ html body {
   text-align: left;
   letter-spacing: 3px;
   background-color: rgba(175, 255, 246, 0);
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.68);
   border-bottom: solid rgba(87, 96, 103, 0) 1px;
 }
 
 .item i{
   font-size: 17px;
   padding-right: 10px;
-  color: rgba(0, 0, 0, 0.54); 
+  color: rgba(0, 0, 0, 0.68); 
 }
 
 #nav-menu .item:hover {
