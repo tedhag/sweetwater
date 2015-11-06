@@ -16,7 +16,7 @@ require([
 ], function (uc_showmap,
              uc_showmenu) {
   
-  uc_showmap.init('start-map');
+  //uc_showmap.init('start-map');
   uc_showmenu.init('#menu');
   
 });
