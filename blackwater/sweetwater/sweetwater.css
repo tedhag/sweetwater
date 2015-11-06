@@ -40,7 +40,7 @@ html body {
 }
 
 .map-box{
-  width: 350px;
+  width: 300px;
   /*height: 580px;
   /*margin: 10px 10px;*/
 }
@@ -52,7 +52,7 @@ html body {
 
 /*menu-box styling ---------------------------------------------- */
 .menu-box{
-  width: 500px;
+  width: 605px;
   /*margin: 10px 10px;*/
 }
 
@@ -69,13 +69,13 @@ html body {
   text-align: center;
   margin: 0px;
   padding: 7px 2px 7px 10px;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: bolder;
   text-align: left;
   text-transform: uppercase;
-  font-weight: 20;
-  letter-spacing: 5px;
-  background-color: rgba(175, 255, 246, 0.13);
-  color: rgba(0, 0, 0, 0.54);;
+  letter-spacing: 10px;
+  background-color: rgba(175, 255, 246, 0);
+  color: rgba(0, 0, 0, 0.61);;
   border-bottom: solid rgba(87, 96, 103, 0.9) 2px;
 }
 
@@ -86,7 +86,7 @@ html body {
 #menu-header i {
   margin: 0px;
   padding: 0px 0px 0px 0px;
-  font-size: 27px;
+  font-size: 33px;
   color: rgba(0, 0, 0, 0.54); 
 }
 
@@ -103,12 +103,12 @@ html body {
   margin: 0px;
   padding: 10px 15px;
   font-size: 13px;
+  font-weight: bold;
   text-align: left;
-  font-weight: 50;
-  letter-spacing: 2px;
-  background-color: rgba(175, 255, 246, 0.13);
+  letter-spacing: 3px;
+  background-color: rgba(175, 255, 246, 0);
   color: rgba(0, 0, 0, 0.54);
-  border-bottom: solid rgba(87, 96, 103, 0.9) 1px;
+  border-bottom: solid rgba(87, 96, 103, 0) 1px;
 }
 
 .item i{
@@ -138,6 +138,7 @@ html body {
 /*info-box styling ---------------------------------------------- */
 
 .info-box{
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -161,7 +162,7 @@ html body {
 .smhi-logo img{
   margin:5px;
   padding: 5px;
-  height: 55px;
+  height: 95px;
 }
 
 /*img-box styling ---------------------------------------------- */
