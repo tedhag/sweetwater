@@ -5,6 +5,8 @@ header{
   
   flex-basis: 3.0em;
   flex-shrink: 0;
+  
+  background-color: white;
 }
 
 .header-wrapper{
@@ -40,8 +42,6 @@ header{
   flex-direction: column;
   align-items: flex-end;
   
-  background-color: #adadad;
-  
   z-index: 1000;
   visibility: hidden;
   opacity: 0;
@@ -53,10 +53,6 @@ header{
   text-align: right; 
   color: white;
   font-size: 1.5em;
-  
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: #969696;
 }
 .menu-list{
   width: 14em;

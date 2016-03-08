@@ -20,6 +20,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   
+  
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -36,8 +37,6 @@ body{
   max-height: 65em;
   width: 100%;
   max-width: 60em;
-  
-  background-color: rgba(255, 255, 255, 0.95);
 }
 
 main{
@@ -51,7 +50,7 @@ main{
 
 .container{
   height: 100%;
-  background-color: rgba(80, 80, 80, 0.6);
+  background-color: rgba(0, 110, 168, 0.47);
 }
 
 footer{
