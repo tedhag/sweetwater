@@ -1,0 +1,106 @@
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
+  flex-basis: 3.0em;
+  flex-shrink: 0;
+}
+
+.header-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 3.0em;
+  flex-shrink: 0;
+
+  color: rgba(46, 46, 46, 0.7);
+}
+
+.app-name{
+  margin: 0px;
+  padding-right: 0.3em;
+  font-size: 2.2em;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+}
+
+.menu {
+  padding-right: 0.2em;
+  font-size: 2.2em; 
+}
+
+.menu i:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
+  background-color: #adadad;
+  
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+.close-menu{
+  
+  text-align: right; 
+  color: white;
+  font-size: 1.5em;
+  
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #969696;
+}
+.menu-list{
+  width: 14em;
+  padding:0px;
+  margin: 0px;
+}
+
+.menu-item{
+  text-align: right;
+  list-style-type: none;
+  text-decoration: none;
+  
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #969696;
+}
+
+.menu-item:hover{
+  background-color: #454545;
+}
+
+.menu-item a{
+  text-decoration: none;
+  color: white;
+  font-family: SourceCodePro;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  padding-right: 4px;
+}
+
+.menu-first{
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: #969696;
+}
+
+.menu-first:hover{
+	border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #a7ff19;
+}
+
+.menu-second:hover{
+	border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #ff6c00;
+}

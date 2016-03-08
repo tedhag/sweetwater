@@ -78,12 +78,12 @@ define([
 
       ctx.clearRect(0, 0, params.canvas.width, params.canvas.height);
       var features = tile.features;
-      ctx.strokeStyle = 'grey';
+      ctx.strokeStyle = 'rgba(167, 134, 113, 0.35)';
       for (var i = 0; i < features.length; i++) {
           var feature = features[i];
           var type = feature.type;
 
-          ctx.fillStyle = feature.tags.color ? feature.tags.color : 'rgba(255,0,0,0.05)';
+          ctx.fillStyle = feature.tags.color ? feature.tags.color : 'rgba(255, 0, 0, 0.06)';
           ctx.beginPath();
           for (var j = 0; j < feature.geometry.length; j++) {
             var geom = feature.geometry[j];

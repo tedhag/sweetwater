@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'SourceCodePro';
+  src: url('../font/SourceCodePro-Regular.otf');
+}
+
+html{
+  height:100%;
+  width: 100%;
+}
+
+body{
+  margin:0px;
+  padding: 0px;
+  height: 100%;
+  
+  font-family: SourceCodePro;
+  font-size: 1.0em;
+  
+  background-image: url('../img/river1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: stretch;
+  
+  height: 100%;
+  max-height: 65em;
+  width: 100%;
+  max-width: 60em;
+  
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  
+  margin:0px;
+  padding: 0px;
+}
+
+.container{
+  height: 100%;
+  background-color: rgba(80, 80, 80, 0.6);
+}
+
+footer{
+  flex-basis: 2.5em;
+  flex-shrink: 0;
+  
+  background-color: rgb(255, 255, 255);
+}
+
+.logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 0.2em;
+  
+}
+
+.logo img{
+  height: 2.3em;
+}
