@@ -49,8 +49,19 @@ main{
 }
 
 .container{
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  
   background-color: rgba(0, 110, 168, 0.47);
+}
+
+#map{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
 }
 
 footer{
@@ -58,18 +69,19 @@ footer{
   flex-shrink: 0;
   
   background-color: rgb(255, 255, 255);
-}
-
-.logo{
+  color: rgb(65, 65, 65);
+  
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  
-  padding: 0.2em;
-  
 }
 
-.logo img{
-  height: 2.3em;
+.use-case, .use-case-descr{
+  margin: 0px;
+  padding: 0px;
+}
+
+.use-case-descr{
+  font-size: 0.8em;
 }

@@ -2,20 +2,22 @@ require.config({
   paths: {
     'header': '../../page_header/page_header',
     'jquery': 'lib/jquery-2.2.0.min',
-    'leaflet': 'lib/leaflet-0.7.7/leaflet',
+    'leaflet': 'lib/leaflet-1.0_beta2/leaflet',
     'esri': 'lib/esri-leaflet',
     'mustache': 'lib/mustache.min',
     'text': 'lib/text',
-    'shp': 'lib/shp.min',
-    'geojsonvt': 'lib/geojson-vt-dev'
+    'esri': 'lib/esri-leaflet',
+    'proj4': 'lib/proj4',
+    'proj4leaflet': 'lib/proj4leaflet'
   }
 });
 
-require(['header',
-], function (Header) {
+require(['header', 'uc_downloadtimeseries'
+], function (Header, UC_DownloadTimeseries) {
    
     Header.init( function(){
       console.log("init page");
+      UC_DownloadTimeseries.init();
     });
   
 });

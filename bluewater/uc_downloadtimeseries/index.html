@@ -16,6 +16,7 @@
   
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="../page_header/page_header.css">
+  <link rel="stylesheet" href="js/lib/leaflet-1.0_beta2/leaflet.css" />
   <link rel="stylesheet" href="font/font-awesome-4.5.0/css/font-awesome.min.css">
   <script data-main="js/main" src="js/lib/require.js"></script>
 </head>
@@ -24,15 +25,14 @@
       <header></header>
       
       <main>
-        <div class="container"></div>
+        <div class="container">
+          <div id="map"></div>
+        </div>
       </main>
       
       <footer>
-        <div class="logo">
-          <img src="img/smhi_svart.png">
-          <div class="app-description"></div>
-          <img src="img/logga_svensk_blaa.gif">
-        </div>
+        <p class="use-case">tidsserier 1961-2014</p>
+        <p class="use-case-descr">nedladdning per avrinningsområde</p>
       </footer>
     </div>
   

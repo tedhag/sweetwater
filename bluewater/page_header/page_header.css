@@ -3,7 +3,7 @@ header{
   flex-direction: column;
   justify-content: flex-start;
   
-  flex-basis: 3.0em;
+  flex-basis: 3.3em;
   flex-shrink: 0;
   
   background-color: white;
@@ -14,14 +14,35 @@ header{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-basis: 3.0em;
+  flex-basis: 3.3em;
   flex-shrink: 0;
 
   color: rgba(46, 46, 46, 0.7);
 }
 
+.logo-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  
+  padding: 0.2em;
+  
+}
+
+.logo img{
+  height: 2.3em;
+}
+
 .app-name{
-  margin: 0px;
+  margin: 14px 0px 0px 0px;
   padding-right: 0.3em;
   font-size: 2.2em;
   text-transform: lowercase;
@@ -99,4 +120,29 @@ header{
 	border-left-style: solid;
   border-left-width: 3px;
   border-left-color: #ff6c00;
+}
+
+
+@media (max-width: 400px){
+  .logo-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .logo{
+    padding: 0em;
+  }
+  
+  .logo img{
+    height: 1.7em;
+    margin: 0px 0px 2px 2px;
+  }
+  
+  .app-name{
+    margin: 0px 0px 2px 2px;
+    font-size: 1.0em;
+  }
+  
 }
