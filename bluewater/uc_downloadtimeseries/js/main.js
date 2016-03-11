@@ -7,8 +7,10 @@ require.config({
     'mustache': 'lib/mustache.min',
     'text': 'lib/text',
     'esri': 'lib/esri-leaflet',
-    'proj4': 'lib/proj4',
-    'proj4leaflet': 'lib/proj4leaflet'
+    'proj4': 'lib/proj4js/proj4-compressed',
+    'proj4leaflet': 'lib/proj4js/proj4leaflet',
+    'shp': 'lib/shp.min',
+    'geojsonvt': 'lib/geojson-vt-dev'
   }
 });
 

@@ -6,7 +6,8 @@ header{
   flex-basis: 3.3em;
   flex-shrink: 0;
   
-  background-color: white;
+  /*background-color: rgba(0, 110, 170, 0.5);*/
+  background-color: rgba(108, 58, 0, 0.8);
 }
 
 .header-wrapper{
@@ -17,7 +18,7 @@ header{
   flex-basis: 3.3em;
   flex-shrink: 0;
 
-  color: rgba(46, 46, 46, 0.7);
+  
 }
 
 .logo-wrapper{
@@ -44,14 +45,16 @@ header{
 .app-name{
   margin: 14px 0px 0px 0px;
   padding-right: 0.3em;
-  font-size: 2.2em;
+  font-size: 2.0em;
   text-transform: lowercase;
   letter-spacing: 2px;
+  color: rgb(247, 226, 194);
 }
 
 .menu {
   padding-right: 0.2em;
-  font-size: 2.2em; 
+  font-size: 2.2em;
+  color: white;
 }
 
 .menu i:hover {
@@ -72,11 +75,11 @@ header{
 .close-menu{
   
   text-align: right; 
-  color: white;
+  color: black;
   font-size: 1.5em;
 }
 .menu-list{
-  width: 14em;
+  width: 13em;
   padding:0px;
   margin: 0px;
 }
@@ -86,18 +89,20 @@ header{
   list-style-type: none;
   text-decoration: none;
   
+  background-color: rgba(150, 150, 150, 0.15);
+  
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-color: #969696;
 }
 
 .menu-item:hover{
-  background-color: #454545;
+  background-color: rgba(175, 150, 46, 0.45);
 }
 
 .menu-item a{
   text-decoration: none;
-  color: white;
+  color: #000000;
   font-family: SourceCodePro;
   text-transform: uppercase;
   font-size: 1.5em;
@@ -111,15 +116,15 @@ header{
 }
 
 .menu-first:hover{
-	border-left-style: solid;
-  border-left-width: 3px;
-  border-left-color: #a7ff19;
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-left-color: #63a000;
 }
 
 .menu-second:hover{
-	border-left-style: solid;
-  border-left-width: 3px;
-  border-left-color: #ff6c00;
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-left-color: #ff5800;
 }
 
 

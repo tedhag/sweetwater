@@ -5,6 +5,7 @@ define([
 ], function (L) {
 
   var create = function(){
+    
     function rescalc(res, n) {
 		if(n === 0)
 			return [ res ];
@@ -17,7 +18,8 @@ define([
     	resolutions: resolutions,
     	origin: [-1200000.000000, 8500000.000000]
     });
-
+    
+    
 	return epsg3006;
   };
   
