@@ -6,7 +6,7 @@ define([
 ], function (L, ShapeFile, GeoJsonVT, CanvasTilelayer) {
   
   var fillcolor = 'rgba(0,0,0,0)';
-  var linecolor = 'rgba(131, 131, 131, 0.29)';
+  var linecolor = 'rgba(78, 114, 59, 0.7)';
   var highlightcolor = 'rgba(200, 200, 200, 0.5)';
   var layer = null;
   /* 
@@ -58,12 +58,25 @@ define([
     });
   }
   
+  var toggle = function(map, checked){
+    if (layer != null){
+      console.log('checkbox basins is marked '+checked);
+      if (checked){
+        map.addLayer(layer);
+      }
+      else{
+        map.removeLayer(layer);
+      }
+    }
+  };
+  
   var get = function(){
     return layer;
   };
     
   return {
     create: create,
+    toggle: toggle,
     get: get
   };
 });
