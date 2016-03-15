@@ -6,6 +6,7 @@ define([
   'uc_togglelayersmenu/uc_togglelayersmenu',
   'uc_togglesavemenu/uc_togglesavemenu',
   'layer_basins',
+  'uc_saveasexcel/uc_saveasexcel',
   'esri'
 ], function (L, 
              //EPSG3006, 
@@ -13,7 +14,8 @@ define([
              //LayerLMVTopogray,
              UC_ToggleLayersMenu,
              UC_ToggleSaveMenu,  
-             BasinsLayer
+             BasinsLayer,
+             UC_SaveAsExcel
              ) {
   
   var update_save = function(data, fn){
@@ -70,7 +72,7 @@ define([
               
               BasinsLayer.clear(function(){
                 BasinsLayer.highlight_basin(data.basin);
-                //UC save as excel
+                UC_SaveAsExcel.init(data);
               });
               
             });
@@ -86,6 +88,23 @@ define([
     
     UC_ToggleLayersMenu.init(map, BasinsLayer);
     UC_ToggleSaveMenu.init(map);
+    
+    var basinDfd = $.Deferred();
+    $(window).on("basinsloaded", function(e) {
+       basinDfd.resolve();
+    });
+    $.when(basinDfd)
+    .done(function(){ 
+       setTimeout(function(){
+          $(".layer-unfold").css({visibility: "hidden", opacity: 0 });
+          $(".layer-content").css({visibility: "hidden", opacity: 0 });
+          $(".layer-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
+         
+          $(".save-unfold").css({visibility: "hidden", opacity: 0 });
+          $(".save-content").css({visibility: "hidden", opacity: 0 });
+          $(".save-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
+        }, 500);
+    });
     
   };
   

@@ -23,12 +23,6 @@ define([
         basins.addEventListener('change', function(){
           BasinsLayer.toggle(map, basins.checked);
         });
-        
-        setTimeout(function(){
-          $(".layer-unfold").css({visibility: "hidden", opacity: 0 });
-          $(".layer-content").css({visibility: "hidden", opacity: 0 });
-          $(".layer-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
-        }, 500);
       });
 
     }

@@ -13,6 +13,8 @@ define([
                                      {subid: '#'+data.id,
                                       url: url});
       $(".save-content").html(template);
+      
+      
     	
     };
   
