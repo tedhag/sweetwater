@@ -194,9 +194,6 @@ main{
 }
 
 .save-content{
-  
-  
-  
   border-top: solid;
   border-top-width: 1px;
   border-top-color: rgba(90, 120, 135, 0.70);
@@ -215,6 +212,10 @@ main{
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(90, 120, 135, 0.70);
 }
 
 .save-subid-header{
