@@ -73,13 +73,14 @@ header{
 }
 
 .close-menu{
-  
+  width: 8em;
+  background-color: rgba(240, 240, 240, 0.9);
   text-align: right; 
   color: black;
   font-size: 1.5em;
 }
 .menu-list{
-  width: 13em;
+  width: 12em;
   padding:0px;
   margin: 0px;
 }
@@ -89,7 +90,7 @@ header{
   list-style-type: none;
   text-decoration: none;
   
-  background-color: rgba(150, 150, 150, 0.15);
+  background-color: rgba(240, 240, 240, 0.9);
   
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -97,7 +98,7 @@ header{
 }
 
 .menu-item:hover{
-  background-color: rgba(175, 150, 50, 0.5);
+  background-color: rgba(175, 150, 50, 0.9);
 }
 
 .menu-item a{
@@ -118,7 +119,7 @@ header{
 .menu-first:hover{
   border-left-style: solid;
   border-left-width: 5px;
-  border-left-color: #63a000;
+  border-left-color: rgb(0, 110, 170);
 }
 
 .menu-second:hover{

@@ -67,7 +67,7 @@ main{
 
 /* ***** styling for layers menu ***** */
 .layer-container{
-  background-color: rgba(175, 150, 50, 0.8);
+  background-color: rgba(175, 150, 50, 0.95);
   width: 14em;
   transition: width 0.6s, background-color 0.4s linear; 
 }
@@ -153,7 +153,7 @@ main{
 
 /* ***** styling for save menu ***** */
 .save-container{
-  background-color: rgba(175, 150, 50, 0.7);
+  background-color: rgba(175, 150, 50, 0.95);
   width: 14em;
   transition: width 0.4s, background-color 0.2s linear; 
 }
