@@ -65,22 +65,26 @@ main{
   width: 100%;
 }
 
+/* ***** styling for layers menu ***** */
+.layer-container{
+  background-color: rgba(175, 150, 50, 0.7);
+  width: 14em;
+  transition: width 0.6s, background-color 0.4s linear; 
+}
+
 .layer-header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
-  background-color: rgba(175, 150, 50, 0.7);
-  transition: background-color 0.4s linear; 
 }
 
 .show-layers{
-  width: 3.2em;
+  width: 3.0em;
 }
 
 .show-layers img{
-  width:3.2em;
+  width:3.0em;
 }
 
 .layer-unfold{
@@ -89,40 +93,41 @@ main{
   justify-content: space-between;
   align-items: center;
   
-  visibility: visible;
-  width: 7em;
-  opacity: 1;
-  transition: width 0.4s, visibility 0.4s, opacity 0.8s linear; 
+  width: 10em;
   
-  font-size: 1.5em;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.6s, opacity 0.4s linear; 
+  
+  font-size: 1.4em;
   font-family: SourceCodePro;
   text-transform: lowercase;
   color: black;
-  
-  
+
 }
 
 .layer-content{
-  
   border-top: solid;
   border-top-width: 1px;
-  border-top-color: black;
-  
-  background-color: rgba(175, 150, 50, 0.7);
-  transition: background-color 0.4s linear;
+  border-top-color: rgba(90, 120, 135, 0.70);
   
   font-family: SourceCodePro;
   text-transform: lowercase;
+  font-size: 1.0em;
+  
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.2s, opacity 0.3s linear;
 }
-
-
 
 .basins-spinner p{
   margin: 0px;
   color: black;
+  
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: black;
+  border-bottom-color: rgba(90, 120, 135, 0.70);
+  
 }
 
 .toggle-basins{
@@ -130,15 +135,15 @@ main{
   flex-direction: row;
   justify-content: flex-start;
   text-transform: lowercase;
-  align-content: center;
+  align-items: center;
   
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: black;
+  border-bottom-color: rgba(90, 120, 135, 0.70);
 }
 
 .toggle-basins:hover{
-  background-color: #454545;
+  background-color: #aa6b07;
   cursor: pointer;
 }
 
@@ -146,9 +151,62 @@ main{
   cursor: pointer;
 }
 
+/* ***** styling for save menu ***** */
+.save-container{
+  background-color: rgba(175, 150, 50, 0.7);
+  width: 14em;
+  transition: width 0.6s, background-color 0.4s linear; 
+}
 
+.save-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.show-save{
+  width: 3.0em;
+}
 
+.show-save img{
+  width: 3.0em;
+}
+
+.save-unfold{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  width: 9em;
+  
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.6s, opacity 0.4s linear; 
+  
+  font-size: 1.4em;
+  font-family: SourceCodePro;
+  text-transform: lowercase;
+  color: black;
+
+}
+
+.save-content{
+  border-top: solid;
+  border-top-width: 1px;
+  border-top-color: rgba(90, 120, 135, 0.70);
+  
+  font-family: SourceCodePro;
+  text-transform: lowercase;
+  font-size: 1.0em;
+  
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.2s, opacity 0.3s linear;
+}
+
+/* ***** styling for footer ***** */
 footer{
   flex-basis: 2.5em;
   flex-shrink: 0;

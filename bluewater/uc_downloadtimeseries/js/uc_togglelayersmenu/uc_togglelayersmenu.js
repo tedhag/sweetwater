@@ -31,19 +31,17 @@ define([
     
     $(".show-layers").on('click', function(){
       console.log("show layers");
-      $(".layer-unfold").css({visibility: "visible",
-                              opacity: 1,
-                              width: "7em"});
-      $(".layer-header").css({backgroundColor: "rgba(175, 150, 50, 0.7)"});
+      $(".layer-unfold").css({visibility: "visible", opacity: 1 });
+      $(".layer-content").css({visibility: "visible", opacity: 1 });
+      $(".layer-container").css({backgroundColor: "rgba(175, 150, 50, 0.8)", width: "14em"});
       
     });
     
     $("#hide-layers").on('click', function(){
       console.log("hide layers");
-      $(".layer-unfold").css({visibility: "hidden",
-                              opacity: 0,
-                              width: "0em"});
-      $(".layer-header").css({backgroundColor: "rgba(0, 0, 0, 0)"});
+      $(".layer-unfold").css({visibility: "hidden", opacity: 0 });
+      $(".layer-content").css({visibility: "hidden", opacity: 0 });
+      $(".layer-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
     });
   };
   

@@ -6,9 +6,10 @@ define([
 ], function (L, ShapeFile, GeoJsonVT, CanvasTilelayer) {
   
   var fillcolor = 'rgba(0,0,0,0)';
-  var linecolor = 'rgba(78, 114, 59, 0.7)';
-  var highlightcolor = 'rgba(200, 200, 200, 0.5)';
+  var linecolor = 'rgba(80, 115, 60, 0.7)';
+  var highlightcolor = 'rgba(255, 190, 0, 0.6)';
   var layer = null;
+  var basin = null;
   /* 
   load shap file using shp from: 
     https://github.com/calvinmetcalf/shapefile-js/blob/master/dist/shp.js 
@@ -58,6 +59,29 @@ define([
     });
   }
   
+  var ready = function(){
+    if (layer != null){
+      return true;
+    }
+    
+    return false;
+  };
+  
+  var match = function(e, fn){
+    var new_basin = layer.getFeature(e.latlng);
+    if(new_basin != null) {
+      var id = new_basin.tags.SUBIDnew;
+      console.log('click on aro id '+id);
+      var data = {
+        basin: new_basin,
+        id: id
+      }
+      
+      fn(data);
+    }
+    
+  };
+  
   var toggle = function(map, checked){
     if (layer != null){
       console.log('checkbox basins is marked '+checked);
@@ -70,13 +94,33 @@ define([
     }
   };
   
+  var clear = function(fn){
+    if (basin != null){
+      basin.tags.color = fillcolor;
+    }
+    
+    fn();
+  };
+  
+  var highlight_basin = function(new_basin){
+    basin=new_basin;
+    if(basin != null) {
+      basin.tags.color = highlightcolor;  
+      layer.redraw();
+    }
+  };
+  
   var get = function(){
     return layer;
   };
     
   return {
     create: create,
+    ready: ready,
+    match: match,
     toggle: toggle,
+    clear: clear,
+    highlight_basin: highlight_basin,
     get: get
   };
 });
