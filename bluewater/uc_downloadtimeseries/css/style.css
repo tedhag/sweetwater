@@ -51,6 +51,7 @@ main{
 .container{
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-grow: 1;
   
   /*background-color: rgba(0, 110, 170, 0.5);*/
@@ -242,6 +243,47 @@ main{
 .save-excel-link{
   text-decoration: none;
   color: black;
+}
+
+/* ***** info box styling ***** */
+.info-img img{
+  width: 3.0em;
+}
+
+.info-content{
+  
+  visibility: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 0%;
+  width: 100%;
+  
+  background-color: rgba(26, 24, 22, 0.68);
+  color: white;
+  
+  transition: height 0.5s linear;
+}
+
+.info-close{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+  font-size: 2.5em;
+  padding-right: 0.1em;
+}
+
+.info-page{
+  margin: 0em 2.0em;
+  overflow-y: auto;
+}
+
+.info-header{
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.5em;
 }
 
 /* ***** styling for footer ***** */

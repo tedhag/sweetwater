@@ -3,6 +3,7 @@ define([
   //'proj_epsg3006',
   //'layer_lmvtopographic',
   //'layer_lmvtopogray',
+  'uc_toggleinfobox/uc_toggleinfobox',
   'uc_togglelayersmenu/uc_togglelayersmenu',
   'uc_togglesavemenu/uc_togglesavemenu',
   'layer_basins',
@@ -12,6 +13,7 @@ define([
              //EPSG3006, 
              //LayerLMVTopographic,
              //LayerLMVTopogray,
+             UC_ToggleInfobox,
              UC_ToggleLayersMenu,
              UC_ToggleSaveMenu,  
              BasinsLayer,
@@ -88,6 +90,7 @@ define([
     
     UC_ToggleLayersMenu.init(map, BasinsLayer);
     UC_ToggleSaveMenu.init(map);
+    UC_ToggleInfobox.init(map);
     
     var basinDfd = $.Deferred();
     $(window).on("basinsloaded", function(e) {
