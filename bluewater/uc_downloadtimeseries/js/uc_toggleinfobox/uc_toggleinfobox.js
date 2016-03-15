@@ -8,7 +8,7 @@ define([
 
   var InfoBox = L.Control.extend({
     options: {
-        position: 'topleft'
+        position: 'topright'
     },
 
     onAdd: function (map) {

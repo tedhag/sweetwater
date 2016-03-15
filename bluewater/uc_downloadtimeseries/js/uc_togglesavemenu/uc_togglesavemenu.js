@@ -31,7 +31,7 @@ define([
       console.log("show save menu");
       $(".save-unfold").css({visibility: "visible", opacity: 1 });
       $(".save-content").css({visibility: "visible",opacity: 1 });
-      //$(".save-content").css({display: "flex" });
+      $(".save-dialog").css({display: "flex" });
       $(".save-container").css({backgroundColor: "rgba(175, 150, 50, 0.7)", width: "14em"});
       
     });
@@ -40,8 +40,9 @@ define([
       console.log("hide save menu");
       $(".save-unfold").css({visibility: "hidden", opacity: 0 });
       $(".save-content").css({visibility: "hidden", opacity: 0 });
-      //$(".save-content").css({display: "none" });
+      $(".save-dialog").css({display: "none" });
       $(".save-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
+      
     });
     
   };

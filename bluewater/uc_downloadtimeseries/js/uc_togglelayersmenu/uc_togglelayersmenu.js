@@ -34,6 +34,7 @@ define([
       $(".layer-unfold").css({visibility: "visible", opacity: 1 });
       $(".layer-content").css({visibility: "visible", opacity: 1 });
       $(".layer-container").css({backgroundColor: "rgba(175, 150, 50, 0.8)", width: "14em"});
+      $(".toggle-basins").css({display: "flex" });
       
     });
     
@@ -42,6 +43,7 @@ define([
       $(".layer-unfold").css({visibility: "hidden", opacity: 0 });
       $(".layer-content").css({visibility: "hidden", opacity: 0 });
       $(".layer-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
+      $(".toggle-basins").css({display: "none" });
     });
   };
   

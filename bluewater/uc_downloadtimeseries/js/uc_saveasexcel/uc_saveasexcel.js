@@ -12,9 +12,7 @@ define([
       var template = Mustache.render(SaveAsExcelTemplate, 
                                      {subid: '#'+data.id,
                                       url: url});
-      $(".save-content").html(template);
-      
-      
+      $(".save-dialog").html(template);
     	
     };
   

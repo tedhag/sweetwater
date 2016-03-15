@@ -102,10 +102,12 @@ define([
           $(".layer-unfold").css({visibility: "hidden", opacity: 0 });
           $(".layer-content").css({visibility: "hidden", opacity: 0 });
           $(".layer-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
+          $(".toggle-basins").css({display: "none" });
          
           $(".save-unfold").css({visibility: "hidden", opacity: 0 });
           $(".save-content").css({visibility: "hidden", opacity: 0 });
           $(".save-container").css({backgroundColor: "rgba(0, 0, 0, 0)", width: "3em"});
+         $(".save-dialog").css({display: "none" });
         }, 500);
     });
     
