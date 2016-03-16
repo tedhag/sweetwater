@@ -271,8 +271,8 @@ main{
   height: 0%;
   width: 100%;
   
-  background-color: rgba(26, 24, 22, 0.68);
-  color: white;
+  background-color: rgba(232, 218, 197, 0.71);
+  color: black;
   
   transition: height 0.5s linear;
 }
@@ -282,8 +282,9 @@ main{
   flex-direction: row;
   justify-content: flex-end;
   
-  font-size: 2.5em;
-  padding-right: 0.1em;
+  font-size: 2.2em;
+  padding-right: 0.2em;
+  color: #ffffff;
 }
 
 .info-page{
@@ -302,13 +303,13 @@ main{
 }
  
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(100, 100, 100, 0.4); 
+    -webkit-box-shadow: inset 0 0 6px rgba(115, 100, 30, 0.9); 
     border-radius: 10px;
 }
  
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(200, 200, 200, 0.7); 
+    box-shadow: inset 0 0 6px rgb(115, 100, 30); 
 }
 
 scrollbar {
@@ -316,7 +317,7 @@ scrollbar {
 }
  
 scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(100, 100, 100, 0.4); 
+    box-shadow: inset 0 0 6px rgba(43, 39, 38, 0.42); 
     border-radius: 10px;
 }
  
