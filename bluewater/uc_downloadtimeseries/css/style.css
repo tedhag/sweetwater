@@ -108,9 +108,14 @@ main{
 }
 
 .layer-content{
+  
   border-top: solid;
-  border-top-width: 1px;
-  border-top-color: rgba(90, 120, 135, 0.70);
+  border-top-width: 2px;
+  border-top-color: rgb(115, 100, 30);
+  
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(90, 120, 135, 0.70);
   
   font-family: SourceCodePro;
   text-transform: lowercase;
@@ -123,11 +128,8 @@ main{
 
 .basins-spinner p{
   margin: 0px;
+  padding: 0.2em;
   color: black;
-  
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: rgba(90, 120, 135, 0.70);
   
 }
 
@@ -138,9 +140,7 @@ main{
   text-transform: lowercase;
   align-items: center;
   
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: rgba(90, 120, 135, 0.70);
+  padding: 0.2em;
 }
 
 .toggle-basins:hover{
@@ -195,8 +195,8 @@ main{
 
 .save-content{
   border-top: solid;
-  border-top-width: 1px;
-  border-top-color: rgba(90, 120, 135, 0.70);
+  border-top-width: 2px;
+  border-top-color: rgb(115, 100, 30);;
   
   font-family: SourceCodePro;
   text-transform: lowercase;
@@ -212,10 +212,13 @@ main{
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgba(90, 120, 135, 0.70);
+}
+
+.save-dialog-outlet{
+  padding: 0.2em;
 }
 
 .save-subid-header{
@@ -230,24 +233,27 @@ main{
   padding-right: 2em;
 }
 
-.save-as-excel{
+.save-as{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   cursor: pointer;
+  
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: rgba(90, 120, 135, 0.70);
 }
 
-.save-as-excel:hover {
+.save-as:hover {
   cursor: pointer;
   background-color: #aa6b07;
 }
 
-.save-as-excel i{
-  margin-left: 0.2em;
-  margin-right: 0.5em;
-}
-
-.save-excel-link{
-  text-decoration: none;
-  color: black;
+.save-as img{
+  width: 1.7em;
+  margin: 0.2em;
 }
 
 /* ***** info box styling ***** */
