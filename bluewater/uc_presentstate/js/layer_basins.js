@@ -19,7 +19,7 @@ define([
   var loadshapefile = function(tileoptions, fn){
     console.log("Shapefile loading...");
     /* Using javascript promises (then) */
-    ShapeFile('shape/SHYPE2012_version_1_2_0_polygons.zip').then(function(data){
+    ShapeFile('shape/sgu_aro').then(function(data){
       console.log("Shapefile loaded, processing data...");
       console.log("Prepare GeoJSON...");
       for(var i in data.features) {

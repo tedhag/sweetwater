@@ -16,7 +16,7 @@ body{
   font-family: SourceCodePro;
   font-size: 1.0em;
   
-  background-image: url('../img/river3.jpg');
+  background-image: url('../img/trees-1025783_1280.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   
@@ -67,6 +67,11 @@ main{
   
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+svg {
+  position: relative;
+}
+
 
 /* ***** styling for footer ***** */
 footer{
