@@ -1,0 +1,21 @@
+body {
+  margin:0px;
+  padding:0px;
+  
+  font: 10px sans-serif;
+}
+
+.diagram{
+  margin: 20px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.browser text {
+  text-anchor: end;
+}
