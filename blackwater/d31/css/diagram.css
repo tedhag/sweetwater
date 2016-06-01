@@ -16,6 +16,10 @@ body {
   shape-rendering: crispEdges;
 }
 
+.x text{
+  color:red;
+}
+
 .browser text {
   text-anchor: end;
 }

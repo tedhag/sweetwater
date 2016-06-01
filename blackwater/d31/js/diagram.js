@@ -1,108 +1,165 @@
 define([
-  'd3'
-], function(d3){
-  
+  'jquery',
+  'd3',
+  'bootstrap'
+], function($, d3){
   
   var init = function (){
-    console.log("d31");
-    
-    var width = 960;
-    var height = 500;
-    
-    //Define chart area
-    var svg = d3.select(".diagram")
-    .append("svg")
-    .attr("width", "40em")
-    .attr("height", "40em")
-    .append("g")
-    .attr("transform", "translate(20,20)");
+    var margin = {top: 20, right: 55, bottom: 30, left: 40},
+          width  = 1000 - margin.left - margin.right,
+          height = 500  - margin.top  - margin.bottom;
 
-    
-    var parseDate = d3.time.format("%m-%d").parse,
-        formatPercent = d3.format(".0%");
+      var x = d3.scale.ordinal()
+          .rangeRoundBands([0, width], .1);
 
-    var x = d3.time.scale()
-      .range([0, width]);
+      var y = d3.scale.linear()
+          .rangeRound([height, 0]);
 
-    var y = d3.scale.linear()
-      .range([height, 0]);
+      var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom");
 
-    var color = d3.scale.category20();
+      var yAxis = d3.svg.axis()
+          .scale(y)
+          .orient("left");
 
-    var xAxis = d3.svg.axis()
-      .scale(x)
-      .orient("bottom");
-    
-    var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left")
-      .tickFormat(formatPercent);
+      var stack = d3.layout.stack()
+          .offset("zero")
+          .values(function (d) { return d.values; })
+          .x(function (d) { return x(d.label) + x.rangeBand() / 2; })
+          .y(function (d) { return d.value; });
 
-    var area = d3.svg.area()
-      .x(function(d) { return x(d.date); })
-      .y0(function(d) { return y(d.y0); })
-      .y1(function(d) { return y(d.y0 + d.y); });
+      var area = d3.svg.area()
+          .interpolate("cardinal")
+          .x(function (d) { return x(d.label) + x.rangeBand() / 2; })
+          .y0(function (d) { return y(d.y0); })
+          .y1(function (d) { return y(d.y0 + d.y); });
 
-    var stack = d3.layout.stack()
-      .values(function(d) { return d.values; });
+      var color = d3.scale.ordinal()
+          .range(["#001c9c","#101b4d","#475003","#9c8305","#d3c47c"]);
 
-    
-    d3.tsv("data.tsv", function(error, data) {
-      if (error) throw error;
+      var svg = d3.select("body").append("svg")
+          .attr("width",  width  + margin.left + margin.right)
+          .attr("height", height + margin.top  + margin.bottom)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      color.domain(d3.keys(data[0]).filter(function(key) { return key !== "DATE"; }));
+      d3.csv("crunchbase-quarters.csv", function (error, data) {
 
-      data.forEach(function(d) {
-        d.date = parseDate(d.DATE);
-      });
+        var labelVar = 'quarter';
+        var varNames = d3.keys(data[0])
+            .filter(function (key) { return key !== labelVar;});
+        color.domain(varNames);
 
-      var browsers = stack(color.domain().map(function(name) {
-        return {
-            name: name,
-            values: data.map(function(d) {
-            return {date: d.date, y: d[name] / 100};
-          })
-        };
-      }));
-
-      x.domain(d3.extent(data, function(d) { return d.date; }));
-
-      var browser = svg.selectAll(".browser")
-        .data(browsers)
-        .enter().append("g")
-        .attr("class", "browser");
-
-      browser.append("path")
-        .attr("class", "area")
-        .attr("d", function(d) { return area(d.values); })
-        .style("fill", function(d) { return color(d.name); });
-
-      browser.append("text")
-        .datum(function(d) { 
-          return {name: d.name, value: d.values[d.values.length - 1]}; 
-        })
-        .attr("transform", function(d) { 
-          return "translate(" + x(d.value.date) + "," + y(d.value.y0 + d.value.y / 2) + ")"; 
-        })
-        .attr("x", -6)
-        .attr("dy", ".35em")
-        .text(function(d) { 
-          return d.name; 
+        var seriesArr = [], series = {};
+        varNames.forEach(function (name) {
+          series[name] = {name: name, values:[]};
+          seriesArr.push(series[name]);
         });
 
-      svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + height + ")")
-          .call(xAxis);
+        data.forEach(function (d) {
+          varNames.map(function (name) {
+            series[name].values.push({name: name, label: d[labelVar], value: +d[name]});
+          });
+        });
 
-      svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis);
-    });
-    
+        x.domain(data.map(function (d) { return d.quarter; }));
+
+        stack(seriesArr);
+
+        y.domain([0, d3.max(seriesArr, function (c) { 
+            return d3.max(c.values, function (d) { return d.y0 + d.y; });
+          })]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Number of Rounds");
+
+        var selection = svg.selectAll(".series")
+          .data(seriesArr)
+          .enter().append("g")
+            .attr("class", "series");
+
+        selection.append("path")
+          .attr("class", "streamPath")
+          .attr("d", function (d) { return area(d.values); })
+          .style("fill", function (d) { return color(d.name); })
+          .style("stroke", "grey");
+
+        var points = svg.selectAll(".seriesPoints")
+          .data(seriesArr)
+          .enter().append("g")
+            .attr("class", "seriesPoints");
+
+        points.selectAll(".point")
+          .data(function (d) { return d.values; })
+          .enter().append("circle")
+           .attr("class", "point")
+           .attr("cx", function (d) { return x(d.label) + x.rangeBand() / 2; })
+           .attr("cy", function (d) { return y(d.y0 + d.y); })
+           .attr("r", "10px")
+           .style("fill",function (d) { return color(d.name); })
+           .on("mouseover", function (d) { showPopover.call(this, d); })
+           .on("mouseout",  function (d) { removePopovers(); })
+
+        var legend = svg.selectAll(".legend")
+            .data(varNames.slice().reverse())
+          .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function (d, i) { return "translate(55," + i * 20 + ")"; });
+
+        legend.append("rect")
+            .attr("x", width - 10)
+            .attr("width", 10)
+            .attr("height", 10)
+            .style("fill", color)
+            .style("stroke", "grey");
+
+        legend.append("text")
+            .attr("x", width - 12)
+            .attr("y", 6)
+            .attr("dy", ".35em")
+            .style("text-anchor", "end")
+            .text(function (d) { return d; });
+
+        function removePopovers () {
+          $('.popover').each(function() {
+            $(this).remove();
+          }); 
+        }
+
+        function showPopover (d) {
+          $(this).popover({
+            title: d.name,
+            placement: 'auto top',
+            container: 'body',
+            trigger: 'manual',
+            html : true,
+            content: function() { 
+              return "Quarter: " + d.label + 
+                     "<br/>Rounds: " + d3.format(",")(d.value ? d.value: d.y1 - d.y0); }
+          });
+          $(this).popover('show')
+        }
+
+      });
+  
   };
+  
+  
   
   return{
     init:init
-  }
+  };
 });

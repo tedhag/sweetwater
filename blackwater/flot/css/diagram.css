@@ -1,0 +1,10 @@
+.diagram {
+	width: 20em;
+	height: 15em;
+	font-size: 1.0em;
+	line-height: 1.2em;
+}
+
+.legend table {
+	border-spacing: 5px;
+}
