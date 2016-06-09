@@ -1,38 +1,124 @@
-define(['jquery', 'jquery.flot', 'jquery.flot.fillbetween'], 
-function($){
+define(['moment', 'jquery', 'jquery.flot', 'jquery.flot.fillbetween', 'jquery.flot.time'], 
+function(moment, $){
   
+  var start_date = null;
+  
+  var get_today = function(){
+    var now = moment();
+    var day = now.date();
+    var month = now.month();
+    var year = now.year();
+    
+    var today = moment({ year:year, month:month, day:day });
+    
+    return today;
+  }
+  
+  var draw = function(filldegree){
+    /*var filldegree = {
+      "p15": [[147222000000, 15.0], [149814000000, 16.3], [152492400000, 17.0], [155084400000, 18], [157762800000, 19]], 
+      "p40": [[147222000000, 25.0], [149814000000, 26.3], [152492400000, 27.0], [155084400000, 28], [157762800000, 29]], 
+      "p60": [[147222000000, 45.0], [149814000000, 46], [152492400000, 47], [155084400000, 48], [157762800000, 49]], 
+      "p85": [[147222000000, 85.0], [149814000000, 86], [152492400000, 87], [155084400000, 88], [157762800000, 89]],
+      "p100": [[147222000000, 100.0], [149814000000, 100], [152492400000, 100], [155084400000, 100], [157762800000, 100]], 
+      "forecast": [[152492400000, 57], [155084400000, -5]]};*/
+    
+    var dataset = [
+      { data: filldegree["forecast"], lines: { show: true }, color: "rgb(51, 51, 51)" },
+      { id: "f15%", data: filldegree["p15"], lines: { show: true, lineWidth: 0, fill: 0.5 }, color: "rgb(255,50,50)" },
+      { id: "f40%", data: filldegree["p40"], lines: { show: true, lineWidth: 0, fill: 0.5 }, color: "rgb(255, 239, 50)", fillBetween: "f15%" },
+      { id: "f60%", data: filldegree["p60"], lines: { show: true, lineWidth: 0, fill: 0.5 }, color: "rgb(50, 255, 66)", fillBetween: "f40%" },
+      { id: "f85%", data: filldegree["p85"], lines: { show: true, lineWidth: 0, fill: 0.5 }, color: "rgb(50, 239, 255)", fillBetween: "f60%" },
+      { id: "f100%", data: filldegree["p100"], lines: { show: true, lineWidth: 0, fill: 0.5 }, color: "rgb(0, 126, 219)", fillBetween: "f85%" }
+    ];
+    
+    var today = get_today().unix()*1000;
+    $.plot($(".diagram"), dataset, {
+      xaxis: {
+        mode: "time",
+        timeformat: "%m-%d",
+        ticks: 12
+        //tickDecimals: 0
+      },
+      yaxis: {
+        max: 100,
+        tickFormatter: function (v) {
+            return v + " %";
+        }
+      },
+      grid: {
+        hoverable: true,
+        markings: [{ xaxis: { from: today, to: today }, color: 'rgb(182, 31, 31)' }]
+      },
+      /*legend: {
+        position: "se"
+      }*/
+    });
+  };
+  
+  var set_startdate = function(date){
+    var now = moment();
+    var month = now.month()+1;//moment counts from 0-11
+    var year = now.year();
+    
+    var start = date.split("-");
+    var start_month = parseInt(start[0]);
+    
+    if (start_month>month){
+      start_date = moment(year-1+"-"+date);
+    }
+    else{
+      start_date = moment(year+"-"+date);
+    }
+  };
   
   var init = function(){
     console.log($.plot);
-    
-    var filldegree = {
-      "15%": [[1, 15.0], [2, 16.3], [3, 17.0], [4, 18], [5, 19]], 
-      "40%": [[1, 25.0], [2, 26.3], [3, 27.0], [4, 28], [5, 29]], 
-      "60%": [[1, 45.0], [2, 46], [3, 47], [4, 48], [5, 49]], 
-      "85%": [[1, 85.0], [2, 86], [3, 87], [4, 88], [5, 89]], 
-      "forecast": [[3, 57], [4, 58]]};
-    
-    var dataset = [
-      { label: "forecast", data: filldegree["forecast"], lines: { show: true }, color: "rgb(51, 51, 51)" },
-      { id: "f15%", data: filldegree["15%"], lines: { show: true, lineWidth: 0, fill: 0.2 }, color: "rgb(255,50,50)" },
-      { id: "f40%", data: filldegree["40%"], lines: { show: true, lineWidth: 0, fill: 0.2 }, color: "rgb(105, 255, 50)", fillBetween: "f15%" },
-      { id: "f60%", data: filldegree["60%"], lines: { show: true, lineWidth: 0.5, fill: 0.4, shadowSize: 0 }, color: "rgb(50, 231, 255)", fillBetween: "f40%" },
-      { id: "f85%", data: filldegree["85%"], lines: { show: true, lineWidth: 0, fill: 0.4 }, color: "rgb(50, 105, 255)", fillBetween: "f60%" }
-    ];
-    
-    $.plot($(".diagram"), dataset, {
-      xaxis: {
-          tickDecimals: 0
-      },
-      yaxis: {
-          tickFormatter: function (v) {
-              return v + " %";
+        
+    var url = "js/data.tsv";
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+        var percentile = xmlhttp.responseText;
+        var rows = percentile.split('\n');
+        var data = {"p15": [],
+                    "p40": [],
+                    "p60": [],
+                    "p85": [],
+                    "p100": [],
+                    "hindcast": [],
+                    "forecast": []};
+        
+        rows.forEach(function(row){
+          
+          if (/^\d{2}-\d{2}/.test(row)){
+            var rowdata = row.split('\t');
+            
+            data.date = rowdata[0];
+            if (start_date==null){
+              set_startdate(data.date);
+            }
+            else{
+              start_date.add(1, 'days');
+            }
+            console.log(start_date.format());
+            
+            var epoch = start_date.unix()*1000;
+            data.p15.push([epoch, parseFloat(rowdata[1])]);
+            data.p40.push([epoch, parseFloat(rowdata[2])]);
+            data.p60.push([epoch, parseFloat(rowdata[3])]);
+            data.p85.push([epoch, parseFloat(rowdata[4])]);
+            data.p100.push([epoch, 100]);
           }
-      },
-      legend: {
-          position: "se"
+          
+        });
+        
+        draw(data);
       }
-    });
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+    
     
     /*var males = {"15%": [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6], [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9], [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]], "90%": [[2, 96.8], [3, 105.2], [4, 113.9], [5, 120.8], [6, 127.0], [7, 133.1], [8, 139.1], [9, 143.9], [10, 151.3], [11, 161.1], [12, 164.8], [13, 173.5], [14, 179.0], [15, 182.0], [16, 186.9], [17, 185.2], [18, 186.3], [19, 186.6]], "25%": [[2, 89.2], [3, 94.9], [4, 104.4], [5, 111.4], [6, 117.5], [7, 120.2], [8, 127.1], [9, 132.9], [10, 136.8], [11, 144.4], [12, 149.5], [13, 154.1], [14, 163.1], [15, 169.2], [16, 170.4], [17, 171.2], [18, 172.4], [19, 170.8]], "10%": [[2, 86.9], [3, 92.6], [4, 99.9], [5, 107.0], [6, 114.0], [7, 113.5], [8, 123.6], [9, 129.2], [10, 133.0], [11, 140.6], [12, 145.2], [13, 149.7], [14, 158.4], [15, 163.5], [16, 166.9], [17, 167.5], [18, 167.1], [19, 165.3]], "mean": [[2, 91.9], [3, 98.5], [4, 107.1], [5, 114.4], [6, 120.6], [7, 124.7], [8, 131.1], [9, 136.8], [10, 142.3], [11, 150.0], [12, 154.7], [13, 161.9], [14, 168.7], [15, 173.6], [16, 175.9], [17, 176.6], [18, 176.8], [19, 176.7]], "75%": [[2, 94.5], [3, 102.1], [4, 110.8], [5, 117.9], [6, 124.0], [7, 129.3], [8, 134.6], [9, 141.4], [10, 147.0], [11, 156.1], [12, 160.3], [13, 168.3], [14, 174.7], [15, 178.0], [16, 180.2], [17, 181.7], [18, 181.3], [19, 182.5]], "85%": [[2, 96.2], [3, 103.8], [4, 111.8], [5, 119.6], [6, 125.6], [7, 131.5], [8, 138.0], [9, 143.3], [10, 149.3], [11, 159.8], [12, 162.5], [13, 171.3], [14, 177.5], [15, 180.2], [16, 183.8], [17, 183.4], [18, 183.5], [19, 185.5]], "50%": [[2, 91.9], [3, 98.2], [4, 106.8], [5, 114.6], [6, 120.8], [7, 125.2], [8, 130.3], [9, 137.1], [10, 141.5], [11, 149.4], [12, 153.9], [13, 162.2], [14, 169.0], [15, 174.8], [16, 176.0], [17, 176.8], [18, 176.4], [19, 177.4]]};
 
