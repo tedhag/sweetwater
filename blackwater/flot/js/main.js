@@ -4,6 +4,7 @@ require.config({
     'jquery.flot': 'lib/flot-0.8.3/jquery.flot',
     'jquery.flot.fillbetween': 'lib/flot-0.8.3/jquery.flot.fillbetween',
     'jquery.flot.time': 'lib/flot-0.8.3/jquery.flot.time',
+    'jquery.flot.navigate': 'lib/flot-0.8.3/jquery.flot.navigate',
     'moment': 'lib/moment'
   },
    shim: {
@@ -18,6 +19,9 @@ require.config({
       deps: ['jquery.flot']
     },
     'jquery.flot.time': {
+      deps: ['jquery.flot']
+    },
+    'jquery.flot.navigate': {
       deps: ['jquery.flot']
     }
   }
