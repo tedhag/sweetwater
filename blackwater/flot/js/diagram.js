@@ -17,13 +17,14 @@ function(moment, $){
   var draw = function(filldegree){
     
     var dataset = [
-      { data: filldegree["forecast"], lines: { show: true }, color: "rgb(0, 0, 0)" },
-      { data: filldegree["hindcast"], lines: { show: true }, color: "rgb(0, 0, 0)" },
-      { id: "f15%", data: filldegree["p15"], lines: { show: true, lineWidth: 0, fill: 0.6 }, color: "rgb(255,50,50)" },
-      { id: "f40%", data: filldegree["p40"], lines: { show: true, lineWidth: 0, fill: 0.6 }, color: "rgb(255, 239, 50)", fillBetween: "f15%" },
-      { id: "f60%", data: filldegree["p60"], lines: { show: true, lineWidth: 0, fill: 0.6 }, color: "rgb(50, 255, 66)", fillBetween: "f40%" },
-      { id: "f85%", data: filldegree["p85"], lines: { show: true, lineWidth: 0, fill: 0.6 }, color: "rgb(50, 239, 255)", fillBetween: "f60%" },
-      { id: "f100%", data: filldegree["p100"], lines: { show: true, lineWidth: 0, fill: 0.6 }, color: "rgb(0, 126, 219)", fillBetween: "f85%" }
+      
+      { id: "f15%", data: filldegree["p15"], lines: { show: true, lineWidth: 0, fill: 0.6 },  color: "rgb(255,50,50)" },
+      { id: "f40%", data: filldegree["p40"], lines: { show: true, lineWidth: 0, fill: 0.6 },  color: "rgb(255, 239, 50)", fillBetween: "f15%" },
+      { id: "f60%", data: filldegree["p60"], lines: { show: true, lineWidth: 0, fill: 0.6 },  color: "rgb(50, 255, 66)", fillBetween: "f40%" },
+      { id: "f85%", data: filldegree["p85"], lines: { show: true, lineWidth: 0, fill: 0.6 },  color: "rgb(50, 239, 255)", fillBetween: "f60%" },
+      { id: "f100%", data: filldegree["p100"], lines: { show: true, lineWidth: 0, fill: 0.6 }, color: "rgb(0, 126, 219)", fillBetween: "f85%" },
+      { id: "fcast", data: filldegree["forecast"], lines: { show: true }, color: "rgb(0, 0, 0)" },
+      { id: "hcast", data: filldegree["hindcast"], lines: { show: true }, color: "rgb(0, 0, 0)" }
     ];
     
     var today = get_today().unix()*1000;
@@ -42,7 +43,8 @@ function(moment, $){
         panRange: [0, 100]
       },
       grid: {
-        //hoverable: true,
+        hoverable: true,
+        color: 'rgb(185, 185, 185)',
         markings: [{ xaxis: { from: today, to: today }, color: 'rgb(255, 0, 0)' }]
       },
       zoom: {
@@ -60,6 +62,16 @@ function(moment, $){
       diagram.resize();
       diagram.setupGrid();
       diagram.draw();
+    });
+    
+    $(".diagram").bind("plothover", function(e, pos, item){
+      console.log(pos);
+      console.log(item);
+      if (item!=null){
+        console.log( moment.unix(item.datapoint[0]/1000).format('YYYY MM DD') ); 
+        $(".datapoint").text(moment.unix(item.datapoint[0]/1000).format('YYYY MM DD')+"fyllnadsgrad: "+item.datapoint[1]);
+      }
+      
     });
   };
   

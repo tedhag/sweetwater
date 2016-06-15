@@ -6,11 +6,11 @@ html, body {
 }
 
 .diagram-container{
-   width: 100%;
+  width: 100%;
   max-width: 100em;
   min-width: 20em;
   height: 100%;
-  max-height: 60em;
+  max-height: 40em;
   min-height: 15em;
 }
 
@@ -20,6 +20,10 @@ html, body {
   
   font-size: 1.0em;
   line-height: 1.2em;
+}
+
+.datapoint{
+  height: 5em;
 }
 
 .legend table {
