@@ -8,8 +8,6 @@ define([
       'SERVICE' : 'WMTS',
       'VERSION' : '1.0.0',
       'REQUEST' : 'GetTile',
-      'FORMAT' : 'image/png',
-      'LAYER' : undefined,
       'TILEMATRIXSET' : undefined,
       'TILEMATRIX' : undefined,
       'TILECOL' : '{x}',

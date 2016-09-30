@@ -42,9 +42,10 @@ define([
       case 'roads':
         layer = Bing.create('Road');
         break;
-      /*
-      Not used for the moment. Problems with projection when selecting other maps
+      
+      /*Not used for the moment. Problems with projection when selecting other maps
       after vw has been selected
+      */
       case 'vw':
         layer = Vattenweb.create();
         //Almost center Sweden.
@@ -52,7 +53,7 @@ define([
         zoom = 3;  
         L.setOptions(map, {crs: Vattenweb.projection() });
         break;
-        */
+      
       default:
         layer = Esri.create();
         break;

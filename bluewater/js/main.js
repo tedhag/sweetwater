@@ -7,11 +7,9 @@ require.config({
 });
 
 require(['uc_downloadtimeseries'
-], function (Header, UC_DownloadTimeseries) {
-   
-    Header.init( function(){
+], function (UC_DownloadTimeseries) {
       console.log("init page");
       UC_DownloadTimeseries.init();
-    });
   
+      
 });
