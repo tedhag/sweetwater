@@ -1,20 +1,37 @@
-var data = [4, 8, 15, 16, 23, 42];
+
+var width = 420,
+    barHeight = 20;
+
+var x = d3.scaleLinear()
+    .range([0, width]);
 
 
-d3.select(".chart")
-  .selectAll("div")
+
+//SVG Chart
+d3.tsv("js/data.txt",type, function(error, data) {
+  x.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+var chart = d3.select(".svgchart")
+    .attr("width", width);
+
+
+var bar = chart.selectAll("g")
     .data(data)
-  .enter().append("div")
-    .style("width", function(d) { return d * 10 + "px"; })
-    .text(function(d) { return d; });
+  .enter().append("g")
+    .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
-var chart = d3.select(".chart");
-var bar = chart.selectAll("div");
+bar.append("rect")
+    .attr("width", function(d) { return x(d.value); })
+    .attr("height", barHeight - 1);
 
-var barUpdate = bar.data(data);
+bar.append("text")
+    .attr("x", function(d) { return x(d.value) - 3; })
+    .attr("y", barHeight / 2)
+    .attr("dy", ".35em")
+    .text(function(d) { return d.value; });
+});
 
-var barEnter = barUpdate.enter().append("div");
-
-barEnter.style("width", function(d) { return d * 10 + "px"; });
-
-barEnter.text(function(d) { return d; });
+function type(d) {
+  d.value = +d.value; // coerce to number
+  return d;
+}
